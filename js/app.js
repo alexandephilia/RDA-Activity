@@ -577,6 +577,8 @@ function updatePagination() {
                     const newPage = parseInt(pageLink.dataset.page);
                     if (!isNaN(newPage) && newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
                         currentPage = newPage;
+                        // Scroll to top before rendering new page
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                         renderCards();
                     }
                 }
@@ -584,6 +586,8 @@ function updatePagination() {
                 const newPage = parseInt(e.target.dataset.page);
                 if (!isNaN(newPage) && newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
                     currentPage = newPage;
+                    // Scroll to top before rendering new page
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                     renderCards();
                 }
             }
@@ -593,6 +597,7 @@ function updatePagination() {
 
 // Function to show detail view
 function showDetailView(cardData) {
+    // First update the view state
     selectedCard = cardData;
     currentView = 'detail';
     
@@ -616,10 +621,27 @@ function showDetailView(cardData) {
 
     // Hide pagination
     document.querySelector('.pagination-wrapper').style.display = 'none';
+    
+    // Use requestAnimationFrame to ensure scroll happens after DOM update
+    requestAnimationFrame(() => {
+        // Force a reflow to ensure the new content is rendered
+        document.body.offsetHeight;
+        // Scroll to top with smooth behavior
+        window.scrollTo({ 
+            top: 0, 
+            behavior: 'smooth',
+            // Add these options to ensure better mobile support
+            block: 'start',
+            inline: 'nearest'
+        });
+    });
 }
 
 // Function to show list view
 function showListView() {
+    // Scroll to top when showing list view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     currentView = 'list';
     selectedCard = null;
     
