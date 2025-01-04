@@ -953,9 +953,7 @@ function initializeEventListeners() {
         }
     });
     
-    // Search button click handler
-    const searchButton = document.querySelector('.search-btn');
-    searchButton.addEventListener('click', performSearch);
+    // Remove search button click handler since search is real-time
     
     // Refresh button handler
     const refreshButton = document.querySelector('.btn-refresh');

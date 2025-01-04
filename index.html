@@ -96,23 +96,28 @@
             min-width: clamp(50px, 10vw, 120px);
             font-size: 0.95rem;
             position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            transform-origin: center;
-
-        }
-
-
-        .search-btn:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 4px rgba(182, 88, 196, 0.2);
+            background-color: #f8f9fa !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #6c757d !important;
+            pointer-events: none;
+            cursor: default;
         }
 
         .search-btn i {
             font-size: 1rem;
             line-height: 1;
             display: inline-flex;
-            
+        }
+
+        /* Remove hover and active states since button is now decorative */
+        .search-btn:hover,
+        .search-btn:active,
+        .search-btn:focus {
+            background-color: #f8f9fa !important;
+            border-color: #e0e0e0 !important;
+            color: #6c757d !important;
+            box-shadow: none !important;
+            transform: none !important;
         }
 
         .btn-refresh {
