@@ -499,7 +499,7 @@
     }
 
     .detail-info-group {
-        min-height: 59px;
+        min-height: 50px;
     }
 
     .detail-info-group .status-badge {
