@@ -37,6 +37,13 @@
     border: none;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     border-radius: 16px;
+    transform: none !important;
+    transition: none !important;
+}
+
+.detail-card:hover {
+    transform: none !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
 }
 
 .detail-title {
