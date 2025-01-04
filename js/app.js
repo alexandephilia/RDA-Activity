@@ -447,7 +447,7 @@ function refreshData() {
 // Function to generate a single card HTML
 function generateCardHTML(data) {
     const cardHtml = `
-        <div class="col-12 col-xl-3 col-lg-4">
+        <div class="col-12 col-sm-6 col-xl-3 col-lg-4">
             <div class="card h-100 p-3 cursor-pointer" data-card-id="${cardData.indexOf(data)}">
                 <div class="card-body p-0">
                     <div class="d-flex justify-content-between">
@@ -518,6 +518,28 @@ function generateCardHTML(data) {
 // Function to render cards for current page
 function renderCards() {
     const container = document.getElementById('cardsContainer');
+    
+    // Check if there are no results
+    if (filteredData.length === 0) {
+        container.innerHTML = `
+            <div class="col-12">
+                <div class="card h-100 p-4 text-center no-results-card">
+                    <div class="card-body">
+                        <i class="bi bi-search mb-3" style="font-size: 2rem;"></i>
+                        <h5 class="mb-2">No RDA Entry Found</h5>
+                        <p class="text-muted mb-0">No results found. Try a different search.</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        // Hide pagination when no results
+        document.querySelector('.pagination-wrapper').style.display = 'none';
+        return;
+    }
+
+    // Show pagination when there are results
+    document.querySelector('.pagination-wrapper').style.display = 'block';
+    
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const currentCards = filteredData.slice(startIndex, endIndex);

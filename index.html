@@ -88,6 +88,7 @@
             background-position: 1rem center;
             background-size: 1rem;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(209, 195, 211, 0.3);
         }
 
         .search-input:focus {
@@ -114,11 +115,13 @@
             background-color: var(--button-color);
             border: none;
             margin-left: -1px;
+            box-shadow: 0 4px 12px rgba(209, 195, 211, 0.3) !important;
+
         }
 
         .btn-refresh:hover {
             background-color: var(--button-hover-color);
-            box-shadow: 0 4px 12px rgba(182, 88, 196, 0.3);
+            box-shadow: 0 1px 4px rgba(47, 34, 49, 0.3);
         }
 
         .btn-refresh:active {
@@ -873,7 +876,7 @@
 
         .btn-dark, 
         .btn-refresh {
-            background-color: var(--button-color) !important;
+            background-color: #8d3cb3 !important;
             border-color: var(--button-color) !important;
             color: var(--button-text-color) !important;
             transition: all 0.2s ease-in-out;
@@ -890,6 +893,7 @@
         .btn-refresh:active {
             background-color: var(--button-active-color) !important;
             border-color: var(--button-active-color) !important;
+        
         }
 
         .btn-dark:disabled,
