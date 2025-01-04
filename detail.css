@@ -716,3 +716,40 @@
         font-size: 0.9rem;
     }
 }
+
+.pagination-wrapper {
+    position: relative;
+    z-index: 1;
+    padding-top: 0.75rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination {
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+    gap: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .pagination-wrapper {
+        justify-content: flex-end;
+    }
+
+    .pagination {
+        margin-right: 0.5rem;
+        gap: 0.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pagination-wrapper {
+        padding-top: 0.5rem;
+        justify-content: flex-end;
+    }
+
+    .pagination {
+        margin-right: 0.4rem;
+        gap: 0.15rem;
+    }
+}
