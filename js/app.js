@@ -881,7 +881,7 @@ function generateDetailViewHTML(data) {
                                         <div class="approver-info">
                                             <span class="detail-value">${data.approval.approver || '-'}</span>
                                             ${data.approval.time ? `
-                                                <small class="text-muted ms-2">${data.approval.time}</small>
+                                                <small class="text-muted ms-2">${data.approval.time.split(' ')[0]}</small>
                                             ` : ''}
                                         </div>
                                     </div>
