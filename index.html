@@ -69,85 +69,56 @@
             background-color: white;
             border-radius: 12px;
             border: 1px solid #a1a1a12f;
-            /* box-shadow: 0 2px 15px rgba(0,0,0,0.05); */
             position: relative;
             z-index: 1;
         }
 
+        .input-group {
+            position: relative;
+        }
+
         .search-input {
-            border-radius: 8px;
+            border-radius: 8px 0 0 8px !important;
             border: 1px solid #e0e0e0;
             height: var(--input-height);
-            padding: 0.6rem 1rem;
+            padding: 0.6rem 1rem 0.6rem 2.8rem;
             font-size: 0.95rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 1rem center;
+            background-size: 1rem;
+            transition: all 0.2s ease;
         }
 
         .search-input:focus {
             box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.15);
             border-color: #828a91;
+            outline: none;
         }
 
-        .search-btn {
-            height: var(--input-height);
-            padding: 0 var(--button-padding);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: clamp(50px, 10vw, 120px);
-            font-size: 0.95rem;
-            position: relative;
-            background-color: #f8f9fa !important;
-            border: 1px solid #e0e0e0 !important;
-            color: #6c757d !important;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        .search-btn i {
-            font-size: 1rem;
-            line-height: 1;
-            display: inline-flex;
-        }
-
-        /* Remove hover and active states since button is now decorative */
-        .search-btn:hover,
-        .search-btn:active,
-        .search-btn:focus {
-            background-color: #f8f9fa !important;
-            border-color: #e0e0e0 !important;
-            color: #6c757d !important;
-            box-shadow: none !important;
-            transform: none !important;
+        .search-input::placeholder {
+            color: #6c757d;
+            opacity: 0.7;
         }
 
         .btn-refresh {
             height: var(--input-height);
-            width: var(--input-height);
-            padding: 0;
+            min-width: clamp(50px, 10vw, 120px);
+            padding: 0 var(--button-padding);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
+            border-radius: 0 8px 8px 0 !important;
             color: white;
             transition: all 0.3s ease;
-            transform-origin: center;
-        }
-
-        .btn-refresh::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120%;
-            height: 120%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.5s ease;
-            pointer-events: none;
+            background-color: var(--button-color);
+            border: none;
+            margin-left: -1px;
         }
 
         .btn-refresh:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(66, 55, 68, 0.3);
+            background-color: var(--button-hover-color);
+            box-shadow: 0 4px 12px rgba(182, 88, 196, 0.3);
         }
 
         .btn-refresh:active {
@@ -155,9 +126,6 @@
             box-shadow: 0 2px 4px rgba(182, 88, 196, 0.2);
         }
 
-        .btn-refresh:hover::after {
-            transform: translate(-50%, -50%) scale(1);
-        }
 
         .btn-refresh i {
             transition: transform 0.5s ease;
@@ -471,17 +439,14 @@
             }
 
             .search-input {
+                padding: 0.4rem 0.8rem 0.4rem 2.4rem;
                 font-size: 0.875rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .search-btn {
-                padding: 0 0.8rem;
-                font-size: 0.875rem;
+                background-position: 0.8rem center;
+                background-size: 0.9rem;
             }
 
             .btn-refresh {
-                width: var(--input-height);
+                font-size: 0.875rem;
             }
 
             .btn-refresh i {
@@ -500,6 +465,21 @@
                 --gap-size: 0.25rem;
                 --status-text-size: 0.7rem;
                 --input-height: 30px;
+            }
+
+            .search-input {
+                padding: 0.35rem 0.7rem 0.35rem 2.2rem;
+                font-size: 0.85rem;
+                background-position: 0.7rem center;
+                background-size: 0.85rem;
+            }
+
+            .btn-refresh {
+                font-size: 0.85rem;
+            }
+
+            .btn-refresh i {
+                font-size: 0.9rem;
             }
         }
 
@@ -1073,19 +1053,14 @@
         <div class="dashboard-wrapper">
             <!-- Search and Refresh Section -->
             <div class="search-section p-4 mb-4">
-                <div class="row align-items-center g-3">
+                <div class="row align-items-center">
                     <div class="col">
                         <div class="input-group">
                             <input type="text" class="form-control search-input" placeholder="Search RDA...">
-                            <button class="btn btn-dark search-btn" type="button">
-                                <i class="bi bi-search"></i><span class="d-none d-md-inline ms-2">Search</span>
+                            <button class="btn btn-refresh">
+                                <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
                             </button>
                         </div>
-                    </div>
-                    <div class="col-auto ps-md-0">
-                        <button class="btn btn-refresh">
-                            <i class="bi bi-arrow-clockwise"></i>
-                        </button>
                     </div>
                 </div>
             </div>
