@@ -669,22 +669,17 @@ function showListView() {
     currentView = 'list';
     selectedCard = null;
     
-    // Restore search section
+    // Restore search section with the CORRECT button structure
     const searchSection = document.querySelector('.search-section');
     searchSection.innerHTML = `
-        <div class="row align-items-center g-3">
+        <div class="row align-items-center">
             <div class="col">
                 <div class="input-group">
                     <input type="text" class="form-control search-input" placeholder="Search RDA...">
-                    <button class="btn btn-dark search-btn" type="button">
-                        <i class="bi bi-search"></i><span class="d-none d-md-inline ms-2">Search</span>
+                    <button class="btn btn-refresh">
+                        <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
                     </button>
                 </div>
-            </div>
-            <div class="col-auto ps-md-0">
-                <button class="btn btn-refresh">
-                    <i class="bi bi-arrow-clockwise"></i>
-                </button>
             </div>
         </div>
     `;
