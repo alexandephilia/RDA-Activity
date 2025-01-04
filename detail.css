@@ -557,17 +557,17 @@
 
 @media (max-width: 768px) {
     .detail-section .category-badge {
-        font-size: 0.88rem;
-        padding: 0.35rem 0.85rem;
-        min-width: 92px;
+        font-size: 0.82rem;
+        padding: 0.32rem 0.75rem;
+        min-width: 85px;
     }
 }
 
 @media (max-width: 576px) {
     .detail-section .category-badge {
-        font-size: 0.83rem;
-        padding: 0.35rem 0.8rem;
-        min-width: 82px;
+        font-size: 0.75rem;
+        padding: 0.28rem 0.65rem;
+        min-width: 75px;
     }
 }
 
@@ -835,7 +835,16 @@
     position: relative;
 }
 
-
+@media (max-width: 576px) {
+    .time-activity-cards > div {
+        width: 40% !important;
+    }
+    
+    .time-activity-cards.g-3 {
+        --bs-gutter-x: 0.25rem !important;
+        --bs-gutter-y: 0.25rem !important;
+    }
+}
 
 /* Adjust the check-in/out cards container */
 .detail-status-card.check-in,
