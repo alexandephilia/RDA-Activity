@@ -21,16 +21,16 @@ const cardData = [
     },
     {
         title: "SIAPP Web Development",
-        status: "check-out",
+        status: "check-in",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "09:00 AM",
-        checkOut: "05:30 PM",
+        checkOut: null,
         activityStatus: "postponed",
-        duration: "2d 8h",
+        duration: null,
         approval: {
             status: "",
             approver: "",
@@ -39,20 +39,20 @@ const cardData = [
     },
     {
         title: "HR System Integration",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "08:30 AM",
-        checkOut: null,
-        activityStatus: null,
-        duration: null,
+        checkOut: "04:30 PM",
+        activityStatus: "completed",
+        duration: "1d 6h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 16:45"
         }
     },
     {
@@ -75,20 +75,20 @@ const cardData = [
     },
     {
         title: "Security Audit System",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "10:00 AM",
-        checkOut: null,
-        activityStatus: null,
-        duration: null,
+        checkOut: "06:00 PM",
+        activityStatus: "completed",
+        duration: "1d 8h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 18:15"
         }
     },
     {
@@ -111,20 +111,20 @@ const cardData = [
     },
     {
         title: "Inventory Management",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "08:45 AM",
-        checkOut: null,
-        activityStatus: null,
-        duration: null,
+        checkOut: "05:45 PM",
+        activityStatus: "completed",
+        duration: "2d 7h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 17:45"
         }
     },
     {
@@ -148,20 +148,20 @@ const cardData = [
     // Second page (9-16)
     {
         title: "Mobile App Development",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "08:00 AM",
-        checkOut: null,
-        activityStatus: null,
-        duration: null,
+        checkOut: "04:00 PM",
+        activityStatus: "completed",
+        duration: "1d 8h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 16:00"
         }
     },
     {
@@ -184,20 +184,20 @@ const cardData = [
     },
     {
         title: "Data Migration Project",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "09:30 AM",
-        checkOut: null,
-        activityStatus: null,
-        duration: null,
+        checkOut: "05:30 PM",
+        activityStatus: "completed",
+        duration: "2d 8h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 17:30"
         }
     },
     {
@@ -210,30 +210,30 @@ const cardData = [
         division: "RSF",
         checkIn: "08:15 AM",
         checkOut: "05:45 PM",
-        activityStatus: "postponed",
-        duration: "1d 4h",
+        activityStatus: "completed",
+        duration: "1d 9h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 17:45"
         }
     },
     {
         title: "UI/UX Enhancement",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "10:15 AM",
-        checkOut: null,
-        activityStatus: null,
-        duration: null,
+        checkOut: "06:15 PM",
+        activityStatus: "completed",
+        duration: "2d 8h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 18:15"
         }
     },
     {
@@ -256,20 +256,20 @@ const cardData = [
     },
     {
         title: "API Integration",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "09:45 AM",
-        checkOut: null,
-        activityStatus: null,
-        duration: null,
+        checkOut: "05:45 PM",
+        activityStatus: "completed",
+        duration: "2d 8h",
         approval: {
-            status: "",
-            approver: "",
-            time: ""
+            status: "approved",
+            approver: "Jensen Huang",
+            time: "2024-03-15 17:45"
         }
     },
     {
