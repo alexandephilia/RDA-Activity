@@ -848,7 +848,7 @@
 @media (max-width: 576px) {
     .time-activity-cards::after {
         height: 80%;
-        left: 44%;
+        left: 48%;
         display: block;
         top: 60%;
 
