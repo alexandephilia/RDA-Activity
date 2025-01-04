@@ -21,16 +21,16 @@ const cardData = [
     },
     {
         title: "SIAPP Web Development",
-        status: "check-in",
+        status: "check-out",
         employee: {
             name: "Elon Musk",
             code: "EM"
         },
         division: "RSF",
         checkIn: "09:00 AM",
-        checkOut: null,
+        checkOut: "05:30 PM",
         activityStatus: "postponed",
-        duration: null,
+        duration: "2d 8h",
         approval: {
             status: "",
             approver: "",
