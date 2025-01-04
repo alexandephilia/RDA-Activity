@@ -820,32 +820,3 @@
         letter-spacing: 0.1px;
     }
 }
-
-@media (max-width: 768px) {
-    .detail-section .col-6:first-child {
-        position: relative;
-    }
-
-    .detail-section .col-6:first-child::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 80%;
-        width: 1px;
-        background: linear-gradient(
-            to bottom,
-            rgba(0,0,0,0) 0%,
-            rgba(0,0,0,0.1) 20%,
-            rgba(0,0,0,0.1) 80%,
-            rgba(0,0,0,0) 100%
-        );
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-section .col-6:first-child::after {
-        height: 70%;
-    }
-}
