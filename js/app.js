@@ -876,7 +876,7 @@ function generateDetailViewHTML(data) {
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="detail-info-group text-md-end">
+                                    <div class="detail-info-group text-md-end mt-2">
                                         <label class="detail-label">Approved By</label>
                                         <div class="approver-info">
                                             <span class="detail-value">${data.approval.approver || '-'}</span>
