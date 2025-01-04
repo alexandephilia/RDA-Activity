@@ -200,7 +200,6 @@
 .activity-status.status-postponed {
     display: inline-flex;
     align-items: center;
-    padding: 0.35rem 0.75rem;
     border-radius: 6px;
     font-weight: 500;
     width: fit-content;
