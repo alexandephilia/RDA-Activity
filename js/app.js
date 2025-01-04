@@ -314,7 +314,7 @@ cardData.forEach(card => {
         huddle: "Daily Standup Meeting",
         project: {
             sproBest: "RSF",
-            name: "Customer Portal Enhancement"
+            name: card.title
         },
         category: {
             type: "Enhancement/New Feature",
