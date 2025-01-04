@@ -309,6 +309,8 @@ cardData.forEach(card => {
 cardData.forEach(card => {
     card.activity = {
         ...card.activity,
+        application: "ESS Web/Mobile",
+        programId: "PRG-2024-001",
         huddle: "Daily Standup Meeting",
         project: {
             sproBest: "RSF",
@@ -846,6 +848,22 @@ function generateDetailViewHTML(data) {
                                             Yes
                                         </label>
                                     </div>
+                                </div>
+                            </div>
+
+                            <!-- Application -->
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Application</label>
+                                    <span class="detail-value">${data.activity.application || '-'}</span>
+                                </div>
+                            </div>
+
+                            <!-- Program ID -->
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Program ID</label>
+                                    <span class="detail-value">${data.activity.programId || '-'}</span>
                                 </div>
                             </div>
 
