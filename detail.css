@@ -10,13 +10,13 @@
 }
 
 .btn-back {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     padding: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 6px;
     background-color: var(--button-color);
     border: none;
     color: white;
@@ -30,7 +30,7 @@
 }
 
 .btn-back i {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .detail-card {
@@ -282,48 +282,12 @@
 
 @media (max-width: 768px) {
     .detail-section {
-        padding: 1rem;
-    }
-
-    .detail-section .section-title {
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-    }
-
-    .detail-section .row {
-        margin: 0 -0.4rem;
-    }
-
-    .detail-section .col-md-6,
-    .detail-section .col-md-3,
-    .detail-section .col-6 {
-        padding: 0 0.4rem;
-    }
-
-    .detail-info-group {
-        gap: 0.35rem;
-        min-height: 60px;
-    }
-
-    .detail-label {
-        font-size: 0.8rem;
-    }
-
-    .detail-value {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-section {
-        padding: 0.875rem;
-        margin-bottom: 0.875rem;
+        padding: 0.8rem;
     }
 
     .detail-section .section-title {
         font-size: 0.9rem;
-        margin-bottom: 0.875rem;
+        margin-bottom: 0.8rem;
         padding-bottom: 0.4rem;
     }
 
@@ -338,8 +302,8 @@
     }
 
     .detail-info-group {
-        gap: 0.3rem;
-        min-height: 55px;
+        gap: 0.25rem;
+        min-height: 50px;
     }
 
     .detail-label {
@@ -350,13 +314,65 @@
         font-size: 0.85rem;
     }
 
+    .detail-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .detail-section {
+        padding: 0.7rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .detail-section .section-title {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+        padding-bottom: 0.35rem;
+    }
+
+    .detail-section .row {
+        margin: 0 -0.25rem;
+    }
+
+    .detail-section .col-md-6,
+    .detail-section .col-md-3,
+    .detail-section .col-6 {
+        padding: 0 0.25rem;
+    }
+
+    .detail-info-group {
+        gap: 0.2rem;
+        min-height: 45px;
+    }
+
+    .detail-label {
+        font-size: 0.7rem;
+    }
+
+    .detail-value {
+        font-size: 0.8rem;
+    }
+
+    .detail-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
     .detail-approval-section {
-        padding: 0.875rem;
-        margin-top: 0.875rem;
+        padding: 0.7rem;
+        margin-top: 0.7rem;
     }
 
     .approval-card {
-        padding: 0.875rem;
+        padding: 0.7rem;
+    }
+
+    .activity-note {
+        padding: 0.7rem;
+        font-size: 0.75rem;
+        min-height: 60px;
     }
 }
 
@@ -602,35 +618,101 @@
 @media (max-width: 768px) {
     .detail-status-card.check-in,
     .detail-status-card.check-out {
-        max-width: 160px;
+        max-width: 140px;
+        padding: 0.7rem;
     }
 
     .detail-status-card.check-in .detail-value,
     .detail-status-card.check-out .detail-value {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 
     .detail-status-card.check-in .detail-label,
     .detail-status-card.check-out .detail-label {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
     }
 }
 
 @media (max-width: 576px) {
     .detail-status-card.check-in,
     .detail-status-card.check-out {
-        max-width: 140px;
+        max-width: 120px;
+        padding: 0.6rem;
     }
 
     .detail-status-card.check-in .detail-value,
     .detail-status-card.check-out .detail-value {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .detail-status-card.check-in .detail-label,
     .detail-status-card.check-out .detail-label {
-        font-size: 0.7rem;
-        margin-bottom: 0.3rem;
-        padding-bottom: 0.3rem;
+        font-size: 0.65rem;
+        margin-bottom: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+}
+
+/* Header title and back button styles */
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.detail-header h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3237;
+}
+
+.btn-back {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: var(--button-color);
+    border: none;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.btn-back i {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .detail-header h4 {
+        font-size: 1.1rem;
+    }
+
+    .btn-back {
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-back i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .detail-header h4 {
+        font-size: 1rem;
+    }
+
+    .btn-back {
+        width: 28px;
+        height: 28px;
+    }
+
+    .btn-back i {
+        font-size: 0.9rem;
     }
 }

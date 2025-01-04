@@ -599,11 +599,11 @@ function showDetailView(cardData) {
     // Update header section
     const searchSection = document.querySelector('.search-section');
     searchSection.innerHTML = `
-        <div class="d-flex align-items-center">
-            <button class="btn btn-back me-3">
+        <div class="detail-header">
+            <button class="btn btn-back">
                 <i class="bi bi-arrow-left"></i>
             </button>
-            <h4 class="mb-0">Real Daily Activity Detail</h4>
+            <h4>Real Daily Activity</h4>
         </div>
     `;
 
@@ -658,7 +658,7 @@ function generateDetailViewHTML(data) {
     return `
         <div class="col-12">
             <div class="card detail-card">
-                <div class="card-body p-4">
+                <div class="card-body p-1">
                     <h3 class="detail-title mb-4">${data.title}</h3>
                     
                     <!-- Employee Information Section -->
