@@ -753,3 +753,70 @@
         gap: 0.15rem;
     }
 }
+
+.detail-status-card.check-in,
+.detail-status-card.check-out {
+    max-width: 180px;
+    margin: 0;
+    position: relative;
+    padding: 0.8rem;
+}
+
+.detail-status-card.check-in .detail-label,
+.detail-status-card.check-out .detail-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.3rem;
+    line-height: 1;
+}
+
+.detail-status-card.check-in .detail-value,
+.detail-status-card.check-out .detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .detail-status-card.check-in,
+    .detail-status-card.check-out {
+        max-width: 130px;
+        padding: 0.6rem;
+    }
+
+    .detail-status-card.check-in .detail-value,
+    .detail-status-card.check-out .detail-value {
+        font-size: 0.82rem;
+    }
+
+    .detail-status-card.check-in .detail-label,
+    .detail-status-card.check-out .detail-label {
+        font-size: 0.65rem;
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
+        letter-spacing: 0.2px;
+    }
+}
+
+@media (max-width: 576px) {
+    .detail-status-card.check-in,
+    .detail-status-card.check-out {
+        max-width: 110px;
+        padding: 0.5rem;
+    }
+
+    .detail-status-card.check-in .detail-value,
+    .detail-status-card.check-out .detail-value {
+        font-size: 0.78rem;
+    }
+
+    .detail-status-card.check-in .detail-label,
+    .detail-status-card.check-out .detail-label {
+        font-size: 0.6rem;
+        margin-bottom: 0.2rem;
+        padding-bottom: 0.2rem;
+        letter-spacing: 0.1px;
+    }
+}
