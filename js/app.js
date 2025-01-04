@@ -610,7 +610,7 @@ function showDetailView(cardData) {
             <button class="btn btn-back">
                 <i class="bi bi-arrow-left"></i>
             </button>
-            <h4>Real Daily Activity</h4>
+            <h4>Realta Daily Activity</h4>
         </div>
     `;
 
