@@ -618,18 +618,18 @@
 @media (max-width: 768px) {
     .detail-status-card.check-in,
     .detail-status-card.check-out {
-        max-width: 140px;
-        padding: 0.7rem;
+        max-width: 130px;
+        padding: 0.65rem;
     }
 
     .detail-status-card.check-in .detail-value,
     .detail-status-card.check-out .detail-value {
-        font-size: 0.85rem;
+        font-size: 0.82rem;
     }
 
     .detail-status-card.check-in .detail-label,
     .detail-status-card.check-out .detail-label {
-        font-size: 0.7rem;
+        font-size: 0.68rem;
         margin-bottom: 0.25rem;
         padding-bottom: 0.25rem;
     }
@@ -638,18 +638,18 @@
 @media (max-width: 576px) {
     .detail-status-card.check-in,
     .detail-status-card.check-out {
-        max-width: 120px;
-        padding: 0.6rem;
+        max-width: 110px;
+        padding: 0.55rem;
     }
 
     .detail-status-card.check-in .detail-value,
     .detail-status-card.check-out .detail-value {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
     .detail-status-card.check-in .detail-label,
     .detail-status-card.check-out .detail-label {
-        font-size: 0.65rem;
+        font-size: 0.63rem;
         margin-bottom: 0.2rem;
         padding-bottom: 0.2rem;
     }
