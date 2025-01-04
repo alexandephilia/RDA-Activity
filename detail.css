@@ -835,17 +835,7 @@
     position: relative;
 }
 
-/* Add vertical separator between check-in and check-out cards */
-.time-activity-cards::after {
-    content: '';
-    position: absolute;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    height: 70%;
-    width: 1px;
-    background-color: rgba(0, 0, 0, 0.1);
-    display: none;
-}
+
 
 /* Adjust the check-in/out cards container */
 .detail-status-card.check-in,
@@ -854,12 +844,3 @@
     z-index: 1;
 }
 
-@media (max-width: 576px) {
-    .time-activity-cards::after {
-        height: 80%;
-        left: 47%;
-        display: block;
-        top: 60%;
-
-    }
-}
