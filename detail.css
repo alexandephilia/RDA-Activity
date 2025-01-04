@@ -833,16 +833,96 @@
 /* Add these styles for the time activity cards container */
 .time-activity-cards {
     position: relative;
+    display: flex;
+    gap: 1rem;
+}
+
+.time-activity-cards > div {
+    flex: 1;
+}
+
+.detail-status-card.check-in,
+.detail-status-card.check-out {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding: 0.8rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-status-card.check-in .detail-label,
+.detail-status-card.check-out .detail-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.3rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.detail-status-card.check-in .detail-value,
+.detail-status-card.check-out .detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .time-activity-cards {
+        gap: 0.5rem;
+    }
+
+    .detail-status-card.check-in,
+    .detail-status-card.check-out {
+        padding: 0.6rem;
+        height: 65px;
+    }
+
+    .detail-status-card.check-in .detail-value,
+    .detail-status-card.check-out .detail-value {
+        font-size: 0.82rem;
+    }
+
+    .detail-status-card.check-in .detail-label,
+    .detail-status-card.check-out .detail-label {
+        font-size: 0.65rem;
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
+        letter-spacing: 0.2px;
+    }
 }
 
 @media (max-width: 576px) {
-    .time-activity-cards > div {
-        width: 40% !important;
+    .time-activity-cards {
+        gap: 0.35rem;
     }
-    
-    .time-activity-cards.g-3 {
-        --bs-gutter-x: 0.25rem !important;
-        --bs-gutter-y: 0.25rem !important;
+
+    .time-activity-cards > div {
+        width: 50% !important;
+    }
+
+    .detail-status-card.check-in,
+    .detail-status-card.check-out {
+        padding: 0.5rem 0.35rem;
+        height: 60px;
+    }
+
+    .detail-status-card.check-in .detail-value,
+    .detail-status-card.check-out .detail-value {
+        font-size: 0.75rem;
+    }
+
+    .detail-status-card.check-in .detail-label,
+    .detail-status-card.check-out .detail-label {
+        font-size: 0.6rem;
+        margin-bottom: 0.2rem;
+        padding-bottom: 0.2rem;
+        letter-spacing: 0;
     }
 }
 
