@@ -835,14 +835,10 @@
     position: relative;
     display: flex;
     gap: 1rem;
-    justify-content: center;
-    width: 100%;
 }
 
 .time-activity-cards > div {
-    flex: 0 1 180px;
-    width: 180px;
-    max-width: 180px;
+    flex: 1;
 }
 
 .detail-status-card.check-in,
@@ -878,13 +874,7 @@
 
 @media (max-width: 768px) {
     .time-activity-cards {
-        gap: 0.1rem;
-    }
-
-    .time-activity-cards > div {
-        flex: 0 1 130px;
-        width: 130px;
-        max-width: 130px;
+        gap: 0.5rem;
     }
 
     .detail-status-card.check-in,
@@ -913,9 +903,7 @@
     }
 
     .time-activity-cards > div {
-        flex: 0 1 110px;
-        width: 110px;
-        max-width: 110px;
+        width: 50% !important;
     }
 
     .detail-status-card.check-in,

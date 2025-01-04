@@ -737,7 +737,7 @@ function generateDetailViewHTML(data) {
                         <h5 class="section-title mb-3">Time Activity</h5>
                         <div class="row g-3">
                             <div class="row g-3 mb-3 time-activity-cards">
-                                <div class="col">
+                                <div class="col-6">
                                     <div class="detail-status-card check-in">
                                         <div class="detail-info-group">
                                             <label class="detail-label">Check In Time</label>
@@ -745,7 +745,7 @@ function generateDetailViewHTML(data) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-6">
                                     <div class="detail-status-card check-out">
                                         <div class="detail-info-group">
                                             <label class="detail-label">Check Out Time</label>
