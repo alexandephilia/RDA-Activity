@@ -58,7 +58,7 @@
         .dashboard-wrapper::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: 15%;
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
@@ -70,6 +70,12 @@
                 rgba(222,226,230,0) 100%
             );
             z-index: 0;
+        }
+
+        @media (max-width: 780px) {
+            .dashboard-wrapper::before {
+                top: 0%;
+            }
         }
 
         .search-section {
