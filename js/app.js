@@ -658,23 +658,30 @@ function updatePagination() {
     });
 }
 
-// Function to restore default search section
-function restoreDefaultSearchSection() {
+// Function to show list view
+function showListView() {
+    // Scroll to top when showing list view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    currentView = 'list';
+    selectedCard = null;
+    
+    // Restore default search section with original structure
     const searchSection = document.querySelector('.search-section');
     searchSection.innerHTML = `
-        <div class="row align-items-center">
-            <div class="col">
-                <div class="input-group mb-2">
+        <div class="d-flex align-items-center justify-content-between gap-2">
+            <div class="search-input-group flex-grow-1">
+                <div class="input-group">
                     <input type="text" class="form-control search-input" placeholder="Search RDA...">
                     <button class="btn btn-refresh">
                         <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
                     </button>
                 </div>
-                <div class="d-flex align-items-center">
-                    <button class="btn btn-new-activity">
-                        <i class="bi bi-plus-lg"></i>New Activity
-                    </button>
-                </div>
+            </div>
+            <div>
+                <button class="btn btn-new-activity">
+                    <i class="bi bi-plus-lg"></i>New Activity
+                </button>
             </div>
         </div>
     `;
@@ -687,18 +694,6 @@ function restoreDefaultSearchSection() {
         e.preventDefault();
         showNewActivityForm();
     });
-}
-
-// Function to show list view
-function showListView() {
-    // Scroll to top when showing list view
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    currentView = 'list';
-    selectedCard = null;
-    
-    // Restore default search section
-    restoreDefaultSearchSection();
     
     // Show pagination
     document.querySelector('.pagination-wrapper').style.display = 'block';
@@ -711,8 +706,8 @@ function showListView() {
 function showNewActivityForm() {
     currentView = 'new';
     
-    // Get logged in user name
-    const userName = getLoggedInUserName();
+    // Get user data from the first card (our source of truth)
+    const userData = cardData[0].employee;
     
     // Get current date and time
     const now = new Date();
@@ -741,7 +736,7 @@ function showNewActivityForm() {
 
     // Update content section with form
     const container = document.getElementById('cardsContainer');
-    container.innerHTML = generateNewActivityFormHTML(userName, formattedDateTime);
+    container.innerHTML = generateNewActivityFormHTML(userData, formattedDateTime);
 
     // Hide pagination
     document.querySelector('.pagination-wrapper').style.display = 'none';
@@ -753,16 +748,8 @@ function showNewActivityForm() {
     updateCategoryTypes();
 }
 
-// Function to get current user data
-function getCurrentUserData() {
-    // Get first card data since it contains the employee info
-    return cardData[0].employee;
-}
-
 // Function to generate new activity form HTML
-function generateNewActivityFormHTML(userName, formattedDateTime) {
-    const userData = getCurrentUserData();
-    
+function generateNewActivityFormHTML(userData, formattedDateTime) {
     // Project options
     const projectSproBestOptions = ['RSF', 'HRD', 'FIN', 'MKT', 'OPS'];
     const projectNameOptions = [
@@ -775,7 +762,7 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
     
     // Generate dropdown options HTML
     const sproBestOptionsHTML = projectSproBestOptions.map(option => 
-        `<option value="${option}">${option}</option>`
+        `<option value="${option}" ${option === userData.division ? 'selected' : ''}>${option}</option>`
     ).join('');
     
     const projectNameOptionsHTML = projectNameOptions.map(option => 
@@ -840,8 +827,8 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label">Division</label>
-                                    <span class="division-badge">RSF</span>
-                                    <input type="hidden" id="division" value="RSF">
+                                    <span class="division-badge">${userData.division || 'RSF'}</span>
+                                    <input type="hidden" id="division" value="${userData.division || 'RSF'}">
                                 </div>
                             </div>
                         </div>
@@ -872,7 +859,7 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label">Created By</label>
-                                    <span class="detail-value">${userName}</span>
+                                    <span class="detail-value">${userData.name}</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -884,7 +871,7 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label">Modified By</label>
-                                    <span class="detail-value">${userName}</span>
+                                    <span class="detail-value">${userData.name}</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
