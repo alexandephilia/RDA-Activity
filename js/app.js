@@ -665,40 +665,41 @@ function showListView() {
     // Restore default search section with original structure
     const searchSection = document.querySelector('.search-section');
     searchSection.innerHTML = `
-        <div class="d-flex align-items-center justify-content-between gap-2">
-            <div class="search-input-group flex-grow-1">
-                <div class="input-group">
-                    <input type="text" class="form-control search-input" placeholder="Search RDA...">
-                    <button class="btn btn-refresh">
-                        <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
+        <div class="search-container">
+            <!-- Favorite Searches Dropdown -->
+            <div class="favorite-searches">
+                <div class="dropdown">
+                    <button class="btn btn-favorite dropdown-toggle text-start" type="button" id="favoriteSearchesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-star me-2"></i>All
                     </button>
+                    <ul class="dropdown-menu w-100" aria-labelledby="favoriteSearchesDropdown">
+                        <li><a class="dropdown-item" href="#">User - My Approved RDA</a></li>
+                        <li><a class="dropdown-item" href="#">User - My Outstanding RDA</a></li>
+                        <li><a class="dropdown-item" href="#">User - My Outstanding RDA Today</a></li>
+                        <li><a class="dropdown-item" href="#">User - My RDA</a></li>
+                        <li><a class="dropdown-item" href="#">User - My RDA Today</a></li>
+                        <li><a class="dropdown-item" href="#">User - My Rejected RDA</a></li>
+                        <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA</a></li>
+                        <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA Today</a></li>
+                        <li><a class="dropdown-item" href="#">User Approver - My Team's RDA</a></li>
+                        <li><a class="dropdown-item" href="#">User Approver - My Team's RDA Today</a></li>
+                    </ul>
                 </div>
             </div>
-            <div>
-                <button class="btn btn-new-activity">
-                    <i class="bi bi-plus-lg"></i>New Activity
-                </button>
-            </div>
-        </div>
-        <!-- Add Favorite Searches Dropdown -->
-        <div class="favorite-searches mt-2">
-            <div class="dropdown">
-                <button class="btn btn-favorite dropdown-toggle w-100 text-start" type="button" id="favoriteSearchesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-star me-2"></i>${currentViewSelection}
-                </button>
-                <ul class="dropdown-menu w-100" aria-labelledby="favoriteSearchesDropdown">
-                    <li><a class="dropdown-item" href="#">All</a></li>
-                    <li><a class="dropdown-item" href="#">User - My Approved RDA</a></li>
-                    <li><a class="dropdown-item" href="#">User - My Outstanding RDA</a></li>
-                    <li><a class="dropdown-item" href="#">User - My Outstanding RDA Today</a></li>
-                    <li><a class="dropdown-item" href="#">User - My RDA</a></li>
-                    <li><a class="dropdown-item" href="#">User - My RDA Today</a></li>
-                    <li><a class="dropdown-item" href="#">User - My Rejected RDA</a></li>
-                    <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA</a></li>
-                    <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA Today</a></li>
-                    <li><a class="dropdown-item" href="#">User Approver - My Team's RDA</a></li>
-                    <li><a class="dropdown-item" href="#">User Approver - My Team's RDA Today</a></li>
-                </ul>
+            <div class="search-input-group-container">
+                <div class="search-input-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control search-input" placeholder="Search RDA...">
+                        <button class="btn btn-refresh">
+                            <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="new-activity-container">
+                    <button class="btn btn-new-activity">
+                        <i class="bi bi-plus-lg"></i>New Activity
+                    </button>
+                </div>
             </div>
         </div>
     `;
