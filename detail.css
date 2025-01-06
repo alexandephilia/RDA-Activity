@@ -220,9 +220,9 @@
 }
 
 .activity-status.status-draft {
-    background-color: #ede4d4;
-    color: rgb(182, 186, 61);
-    border: 1px solid rgba(82, 87, 73, 0.15);
+    background-color: #e2e5e9;
+    color: #495057;
+    border: 1px solid rgba(73, 80, 87, 0.083);
 }
 
 .activity-status.large-badge {

@@ -853,18 +853,18 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                         <div class="row g-3">
                             <div class="row g-3 mb-3 time-activity-cards">
                                 <div class="col-6">
-                                    <div class="detail-status-card check-in">
+                                    <div class="detail-status-card check-in no-hover">
                                         <div class="detail-info-group">
                                             <label class="detail-label">Check In Time</label>
-                                            <input type="time" class="form-control time-input" id="checkInTime" readonly>
+                                            <span class="detail-value">-</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="detail-status-card check-out">
+                                    <div class="detail-status-card check-out no-hover">
                                         <div class="detail-info-group">
                                             <label class="detail-label">Check Out Time</label>
-                                            <input type="time" class="form-control time-input" id="checkOutTime">
+                                            <span class="detail-value">-</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1131,7 +1131,7 @@ function generateDetailViewHTML(data) {
                         <div class="row g-3">
                             <div class="row g-3 mb-3 time-activity-cards">
                                 <div class="col-6">
-                                    <div class="detail-status-card check-in">
+                                    <div class="detail-status-card check-in no-hover">
                                         <div class="detail-info-group">
                                             <label class="detail-label">Check In Time</label>
                                             <span class="detail-value">${data.checkIn}</span>
@@ -1139,7 +1139,7 @@ function generateDetailViewHTML(data) {
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="detail-status-card check-out">
+                                    <div class="detail-status-card check-out no-hover">
                                         <div class="detail-info-group">
                                             <label class="detail-label">Check Out Time</label>
                                             <span class="detail-value">${data.checkOut || '-'}</span>
@@ -1383,7 +1383,7 @@ function handleNewActivitySubmit(e) {
     // Create new activity object from form data
     const newActivity = {
         title: document.getElementById('activityTitle').value,
-        status: document.getElementById('checkOutTime').value ? 'check-out' : 'check-in',
+        status: 'check-in', // Always set to check-in for new activities
         employee: {
             name: document.getElementById('fullName').value,
             code: document.getElementById('initial').value,
@@ -1396,7 +1396,7 @@ function handleNewActivitySubmit(e) {
         },
         division: document.getElementById('division').value,
         checkIn: currentTime, // Use current time for check-in
-        checkOut: document.getElementById('checkOutTime').value || null,
+        checkOut: null, // Always null for new activities
         activityStatus: 'draft', // Set initial status as draft
         duration: null,
         activity: {
