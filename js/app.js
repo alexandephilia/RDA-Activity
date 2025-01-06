@@ -633,26 +633,19 @@ function updatePagination() {
     document.querySelectorAll('.page-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            if (e.target.tagName === 'I') {
-                // If clicked on the icon, get the parent link
-                const pageLink = e.target.closest('.page-link');
-                if (pageLink) {
-                    const newPage = parseInt(pageLink.dataset.page);
-                    if (!isNaN(newPage) && newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
-                        currentPage = newPage;
-                        // Scroll to top before rendering new page
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                        renderCards();
-                    }
-                }
-            } else {
-                const newPage = parseInt(e.target.dataset.page);
-                if (!isNaN(newPage) && newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
-                    currentPage = newPage;
-                    // Scroll to top before rendering new page
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Get the clicked element or its closest page-link parent
+            const pageLink = e.target.closest('.page-link');
+            if (!pageLink) return;
+            
+            const newPage = parseInt(pageLink.dataset.page);
+            if (!isNaN(newPage) && newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
+                currentPage = newPage;
+                // Ensure scroll happens before rendering
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
                     renderCards();
-                }
+                }, 100); // Small delay to ensure smooth scroll starts first
             }
         });
     });
