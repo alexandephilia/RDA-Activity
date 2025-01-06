@@ -17,9 +17,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    background-color: var(--button-color);
+    background-color: #d48bff96 !important;
     border: none;
-    color: white;
+    color: #6c1268a1 !important;
     transition: all 0.2s ease;
 }
 

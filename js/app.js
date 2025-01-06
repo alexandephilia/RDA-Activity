@@ -780,55 +780,60 @@ function generateNewActivityFormHTML(userData, formattedDateTime) {
                 <div class="card-body p-1">
                     <!-- Employee Information Section -->
                     <div class="detail-section mb-4">
-                        <h5 class="section-title mb-3">Employee Information</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Full Name</label>
-                                    <span class="detail-value">${userData.name}</span>
-                                    <input type="hidden" id="fullName" value="${userData.name}">
+                        <div class="section-header collapsed" onclick="toggleSection(this)">
+                            <i class="bi bi-chevron-down"></i>
+                            <h5 class="section-title mb-0">Employee Information</h5>
+                        </div>
+                        <div class="section-content collapsed">
+                            <div class="row g-3 mt-3">
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Full Name</label>
+                                        <span class="detail-value">${userData.name}</span>
+                                        <input type="hidden" id="fullName" value="${userData.name}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Initial</label>
-                                    <span class="detail-value employee-code">${userData.code}</span>
-                                    <input type="hidden" id="initial" value="${userData.code}">
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Initial</label>
+                                        <span class="detail-value employee-code">${userData.code}</span>
+                                        <input type="hidden" id="initial" value="${userData.code}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Email</label>
-                                    <span class="detail-value">${userData.email}</span>
-                                    <input type="hidden" id="email" value="${userData.email}">
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Email</label>
+                                        <span class="detail-value">${userData.email}</span>
+                                        <input type="hidden" id="email" value="${userData.email}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Department</label>
-                                    <span class="detail-value">${userData.department}</span>
-                                    <input type="hidden" id="department" value="${userData.department}">
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Department</label>
+                                        <span class="detail-value">${userData.department}</span>
+                                        <input type="hidden" id="department" value="${userData.department}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Manager Name</label>
-                                    <span class="detail-value">${userData.manager.name}</span>
-                                    <input type="hidden" id="managerName" value="${userData.manager.name}">
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Manager Name</label>
+                                        <span class="detail-value">${userData.manager.name}</span>
+                                        <input type="hidden" id="managerName" value="${userData.manager.name}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Manager Email</label>
-                                    <span class="detail-value">${userData.manager.email}</span>
-                                    <input type="hidden" id="managerEmail" value="${userData.manager.email}">
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Manager Email</label>
+                                        <span class="detail-value">${userData.manager.email}</span>
+                                        <input type="hidden" id="managerEmail" value="${userData.manager.email}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Division</label>
-                                    <span class="division-badge">${userData.division || 'RSF'}</span>
-                                    <input type="hidden" id="division" value="${userData.division || 'RSF'}">
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Division</label>
+                                        <span class="division-badge">${userData.division || 'RSF'}</span>
+                                        <input type="hidden" id="division" value="${userData.division || 'RSF'}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -836,48 +841,53 @@ function generateNewActivityFormHTML(userData, formattedDateTime) {
 
                     <!-- Time Information Section -->
                     <div class="detail-section mb-4">
-                        <h5 class="section-title mb-3">Time Activity</h5>
-                        <div class="row g-3">
-                            <div class="row g-3 mb-3 time-activity-cards">
-                                <div class="col-6">
-                                    <div class="detail-status-card check-in no-hover">
-                                        <div class="detail-info-group">
-                                            <label class="detail-label">Check In Time</label>
-                                            <span class="detail-value">-</span>
+                        <div class="section-header collapsed" onclick="toggleSection(this)">
+                            <i class="bi bi-chevron-down"></i>
+                            <h5 class="section-title mb-0">Time Activity</h5>
+                        </div>
+                        <div class="section-content collapsed">
+                            <div class="row g-3 mt-3">
+                                <div class="row g-3 mb-3 time-activity-cards">
+                                    <div class="col-6">
+                                        <div class="detail-status-card check-in no-hover">
+                                            <div class="detail-info-group">
+                                                <label class="detail-label">Check In Time</label>
+                                                <span class="detail-value">-</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="detail-status-card check-out no-hover">
+                                            <div class="detail-info-group">
+                                                <label class="detail-label">Check Out Time</label>
+                                                <span class="detail-value">-</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="detail-status-card check-out no-hover">
-                                        <div class="detail-info-group">
-                                            <label class="detail-label">Check Out Time</label>
-                                            <span class="detail-value">-</span>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Created By</label>
+                                        <span class="detail-value">${userData.name}</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Created By</label>
-                                    <span class="detail-value">${userData.name}</span>
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Created On</label>
+                                        <span class="detail-value">${formattedDateTime}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Created On</label>
-                                    <span class="detail-value">${formattedDateTime}</span>
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Modified By</label>
+                                        <span class="detail-value">${userData.name}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Modified By</label>
-                                    <span class="detail-value">${userData.name}</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Modified On</label>
-                                    <span class="detail-value">${formattedDateTime}</span>
+                                <div class="col-md-6">
+                                    <div class="detail-info-group">
+                                        <label class="detail-label">Modified On</label>
+                                        <span class="detail-value">${formattedDateTime}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1318,7 +1328,15 @@ function initializeEventListeners() {
         }
     });
     
-    // Remove search button click handler since search is real-time
+    // Add dropdown label update functionality
+    document.querySelectorAll('.favorite-searches .dropdown-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const selectedText = e.target.textContent;
+            const dropdownButton = document.querySelector('#favoriteSearchesDropdown');
+            dropdownButton.innerHTML = `<i class="bi bi-star me-2"></i>${selectedText}`;
+        });
+    });
     
     // Refresh button handler
     const refreshButton = document.querySelector('.btn-refresh');
@@ -1422,6 +1440,13 @@ function handleNewActivitySubmit(e) {
 
     // Return to list view
     showListView();
+}
+
+// Function to toggle section visibility
+function toggleSection(header) {
+    const content = header.nextElementSibling;
+    header.classList.toggle('collapsed');
+    content.classList.toggle('collapsed');
 }
 
 // Initialize the page
