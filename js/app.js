@@ -658,6 +658,9 @@ function updatePagination() {
     });
 }
 
+// Add state variable for current view selection
+let currentViewSelection = 'FAVORITE SEARCHES';
+
 // Function to show list view
 function showListView() {
     // Scroll to top when showing list view
@@ -682,6 +685,27 @@ function showListView() {
                 <button class="btn btn-new-activity">
                     <i class="bi bi-plus-lg"></i>New Activity
                 </button>
+            </div>
+        </div>
+        <!-- Add Favorite Searches Dropdown -->
+        <div class="favorite-searches mt-2">
+            <div class="dropdown">
+                <button class="btn btn-favorite dropdown-toggle w-100 text-start" type="button" id="favoriteSearchesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-star me-2"></i>${currentViewSelection}
+                </button>
+                <ul class="dropdown-menu w-100" aria-labelledby="favoriteSearchesDropdown">
+                    <li><a class="dropdown-item" href="#">All</a></li>
+                    <li><a class="dropdown-item" href="#">User - My Approved RDA</a></li>
+                    <li><a class="dropdown-item" href="#">User - My Outstanding RDA</a></li>
+                    <li><a class="dropdown-item" href="#">User - My Outstanding RDA Today</a></li>
+                    <li><a class="dropdown-item" href="#">User - My RDA</a></li>
+                    <li><a class="dropdown-item" href="#">User - My RDA Today</a></li>
+                    <li><a class="dropdown-item" href="#">User - My Rejected RDA</a></li>
+                    <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA</a></li>
+                    <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA Today</a></li>
+                    <li><a class="dropdown-item" href="#">User Approver - My Team's RDA</a></li>
+                    <li><a class="dropdown-item" href="#">User Approver - My Team's RDA Today</a></li>
+                </ul>
             </div>
         </div>
     `;
@@ -1333,6 +1357,7 @@ function initializeEventListeners() {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const selectedText = e.target.textContent;
+            currentViewSelection = selectedText; // Update the state
             const dropdownButton = document.querySelector('#favoriteSearchesDropdown');
             dropdownButton.innerHTML = `<i class="bi bi-star me-2"></i>${selectedText}`;
         });
