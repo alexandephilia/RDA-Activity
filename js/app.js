@@ -317,8 +317,8 @@ cardData.forEach(card => {
             name: card.title
         },
         category: {
-            type: "Enhancement/New Feature",
-            area: "Production"
+            main: "Enhancement",  // Default main category
+            type: "New Feature"   // Default type from our mapping
         },
         softwareDev: true,
         note: "Implementing new features for customer portal including authentication improvements and dashboard optimization.",
@@ -334,6 +334,45 @@ let filteredData = [...cardData]; // Store filtered data
 // State management for SPA
 let currentView = 'list'; // 'list' or 'detail'
 let selectedCard = null;
+
+// Category mapping data
+const categoryMapping = {
+    'Enhancement': [
+        'New Feature',
+        'UI/UX Improvement',
+        'Performance Optimization',
+        'Code Refactoring',
+        'Integration Enhancement'
+    ],
+    'Bug Fix': [
+        'Critical Error',
+        'Security Issue',
+        'Data Integrity',
+        'UI/UX Issue',
+        'Performance Bug'
+    ],
+    'Maintenance': [
+        'Database Cleanup',
+        'Code Optimization',
+        'Version Update',
+        'Security Update',
+        'Performance Tuning'
+    ],
+    'Documentation': [
+        'API Documentation',
+        'User Manual',
+        'Code Comments',
+        'Release Notes',
+        'Technical Specs'
+    ],
+    'Support': [
+        'User Training',
+        'Technical Support',
+        'Data Analysis',
+        'System Monitoring',
+        'Issue Investigation'
+    ]
+};
 
 // Function to filter data based on search query
 function filterData(query) {
@@ -709,6 +748,9 @@ function showNewActivityForm() {
 
     // Add form submission handler
     document.getElementById('newActivityForm').addEventListener('submit', handleNewActivitySubmit);
+
+    // Initialize category types dropdown
+    updateCategoryTypes();
 }
 
 // Function to get current user data
@@ -721,6 +763,30 @@ function getCurrentUserData() {
 function generateNewActivityFormHTML(userName, formattedDateTime) {
     const userData = getCurrentUserData();
     
+    // Project options
+    const projectSproBestOptions = ['RSF', 'HRD', 'FIN', 'MKT', 'OPS'];
+    const projectNameOptions = [
+        'ESS Web/Mobile Development',
+        'SIAPP Web Development',
+        'HR System Integration',
+        'Financial Dashboard',
+        'Security Audit System'
+    ];
+    
+    // Generate dropdown options HTML
+    const sproBestOptionsHTML = projectSproBestOptions.map(option => 
+        `<option value="${option}">${option}</option>`
+    ).join('');
+    
+    const projectNameOptionsHTML = projectNameOptions.map(option => 
+        `<option value="${option}">${option}</option>`
+    ).join('');
+
+    // Generate category options HTML
+    const categoryOptionsHTML = Object.keys(categoryMapping).map(category => 
+        `<option value="${category}">${category}</option>`
+    ).join('');
+
     return `
         <div class="col-12">
             <form id="newActivityForm" class="card detail-card">
@@ -790,7 +856,7 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                                     <div class="detail-status-card check-in">
                                         <div class="detail-info-group">
                                             <label class="detail-label">Check In Time</label>
-                                            <input type="time" class="form-control time-input" id="checkInTime" required>
+                                            <input type="time" class="form-control time-input" id="checkInTime" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -834,6 +900,14 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                     <div class="detail-section mb-4">
                         <h5 class="section-title mb-3">Detail Activity</h5>
                         <div class="row g-4">
+                            <!-- Status Information -->
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Status</label>
+                                    <span class="activity-status status-draft large-badge">Draft</span>
+                                </div>
+                            </div>
+
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label" for="activityTitle">Activity Title</label>
@@ -849,13 +923,19 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label" for="projectSproBest">Project SproBest</label>
-                                    <input type="text" class="form-control" id="projectSproBest" required>
+                                    <select class="form-select" id="projectSproBest" required>
+                                        <option value="" disabled selected>Select Project SproBest</option>
+                                        ${sproBestOptionsHTML}
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label" for="projectName">Project Name</label>
-                                    <input type="text" class="form-control" id="projectName" required>
+                                    <select class="form-select" id="projectName" required>
+                                        <option value="" disabled selected>Select Project Name</option>
+                                        ${projectNameOptionsHTML}
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -881,11 +961,18 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                             </div>
                             <div class="col-md-6">
                                 <div class="detail-info-group">
-                                    <label class="detail-label">Category</label>
-                                    <div class="d-flex gap-2">
-                                        <input type="text" class="form-control" id="categoryType" placeholder="Type" required>
-                                        <input type="text" class="form-control" id="categoryArea" placeholder="Area" required>
-                                    </div>
+                                    <label class="detail-label" for="category">Category</label>
+                                    <select class="form-select" id="category" required onchange="updateCategoryTypes()">
+                                        <option value="" disabled selected>Select Category</option>
+                                        ${categoryOptionsHTML}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Category Type</label>
+                                    <span class="detail-value" id="categoryTypeValue">-</span>
+                                    <input type="hidden" id="categoryType" value="">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -906,13 +993,32 @@ function generateNewActivityFormHTML(userName, formattedDateTime) {
                     <!-- Submit Button -->
                     <div class="text-end">
                         <button type="submit" class="btn btn-new-activity">
-                            <i class="bi bi-plus-lg"></i>Add Activity
+                            <i class="bi bi-save"></i>Save
                         </button>
                     </div>
                 </div>
             </form>
         </div>
     `;
+}
+
+// Function to update category types based on selected category
+function updateCategoryTypes() {
+    const categorySelect = document.getElementById('category');
+    const categoryTypeSpan = document.getElementById('categoryTypeValue');
+    const categoryTypeInput = document.getElementById('categoryType');
+    const selectedCategory = categorySelect.value;
+
+    if (selectedCategory && categoryMapping[selectedCategory]) {
+        // Show first type from the mapping as text
+        const defaultType = categoryMapping[selectedCategory][0];
+        categoryTypeSpan.textContent = defaultType;
+        categoryTypeInput.value = defaultType;
+    } else {
+        // Show dash if no category selected
+        categoryTypeSpan.textContent = '-';
+        categoryTypeInput.value = '';
+    }
 }
 
 // Function to show detail view
@@ -958,6 +1064,12 @@ function showDetailView(cardData) {
 
 // Function to generate detail view HTML
 function generateDetailViewHTML(data) {
+    // Get category type from mapping if available
+    let categoryType = '-';
+    if (data.activity.category.main && categoryMapping[data.activity.category.main]) {
+        categoryType = data.activity.category.type || categoryMapping[data.activity.category.main][0];
+    }
+
     return `
         <div class="col-12">
             <div class="card detail-card">
@@ -1134,10 +1246,13 @@ function generateDetailViewHTML(data) {
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label">Category</label>
-                                    <div class="category-badges">
-                                        <span class="category-badge">${data.activity.category.type}</span>
-                                        <span class="category-badge">${data.activity.category.area}</span>
-                                    </div>
+                                    <span class="detail-value">${data.activity.category.main || '-'}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Category Type</label>
+                                    <span class="detail-value">${categoryType}</span>
                                 </div>
                             </div>
 
@@ -1255,6 +1370,13 @@ function handleNewActivitySubmit(e) {
         hour12: true
     });
 
+    // Format current time for check-in (HH:mm format)
+    const currentTime = now.toLocaleTimeString('en-US', { 
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
     // Get logged in user name
     const userName = getLoggedInUserName();
 
@@ -1273,9 +1395,9 @@ function handleNewActivitySubmit(e) {
             }
         },
         division: document.getElementById('division').value,
-        checkIn: document.getElementById('checkInTime').value,
+        checkIn: currentTime, // Use current time for check-in
         checkOut: document.getElementById('checkOutTime').value || null,
-        activityStatus: null,
+        activityStatus: 'draft', // Set initial status as draft
         duration: null,
         activity: {
             application: document.getElementById('application').value,
@@ -1286,8 +1408,8 @@ function handleNewActivitySubmit(e) {
                 name: document.getElementById('projectName').value
             },
             category: {
-                type: document.getElementById('categoryType').value,
-                area: document.getElementById('categoryArea').value
+                main: document.getElementById('category').value,
+                type: document.getElementById('categoryType').value
             },
             softwareDev: document.getElementById('softwareDev').checked,
             note: document.getElementById('activityNote').value,
