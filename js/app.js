@@ -619,6 +619,302 @@ function updatePagination() {
     });
 }
 
+// Function to restore default search section
+function restoreDefaultSearchSection() {
+    const searchSection = document.querySelector('.search-section');
+    searchSection.innerHTML = `
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control search-input" placeholder="Search RDA...">
+                    <button class="btn btn-refresh">
+                        <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
+                    </button>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-new-activity">
+                        <i class="bi bi-plus-lg"></i>New Activity
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Re-initialize event listeners
+    initializeEventListeners();
+    
+    // Add click handler for new activity button
+    document.querySelector('.btn-new-activity').addEventListener('click', (e) => {
+        e.preventDefault();
+        showNewActivityForm();
+    });
+}
+
+// Function to show list view
+function showListView() {
+    // Scroll to top when showing list view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    currentView = 'list';
+    selectedCard = null;
+    
+    // Restore default search section
+    restoreDefaultSearchSection();
+    
+    // Show pagination
+    document.querySelector('.pagination-wrapper').style.display = 'block';
+    
+    // Render cards
+    renderCards();
+}
+
+// Function to show new activity form
+function showNewActivityForm() {
+    currentView = 'new';
+    
+    // Get logged in user name
+    const userName = getLoggedInUserName();
+    
+    // Get current date and time
+    const now = new Date();
+    const formattedDateTime = now.toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+    
+    // Update header section with back button
+    const searchSection = document.querySelector('.search-section');
+    searchSection.innerHTML = `
+        <div class="detail-header">
+            <button class="btn btn-back">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+            <h4>New Activity</h4>
+        </div>
+    `;
+
+    // Add click handler for back button
+    document.querySelector('.btn-back').addEventListener('click', showListView);
+
+    // Update content section with form
+    const container = document.getElementById('cardsContainer');
+    container.innerHTML = generateNewActivityFormHTML(userName, formattedDateTime);
+
+    // Hide pagination
+    document.querySelector('.pagination-wrapper').style.display = 'none';
+
+    // Add form submission handler
+    document.getElementById('newActivityForm').addEventListener('submit', handleNewActivitySubmit);
+}
+
+// Function to get current user data
+function getCurrentUserData() {
+    // Get first card data since it contains the employee info
+    return cardData[0].employee;
+}
+
+// Function to generate new activity form HTML
+function generateNewActivityFormHTML(userName, formattedDateTime) {
+    const userData = getCurrentUserData();
+    
+    return `
+        <div class="col-12">
+            <form id="newActivityForm" class="card detail-card">
+                <div class="card-body p-1">
+                    <!-- Employee Information Section -->
+                    <div class="detail-section mb-4">
+                        <h5 class="section-title mb-3">Employee Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Full Name</label>
+                                    <span class="detail-value">${userData.name}</span>
+                                    <input type="hidden" id="fullName" value="${userData.name}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Initial</label>
+                                    <span class="detail-value employee-code">${userData.code}</span>
+                                    <input type="hidden" id="initial" value="${userData.code}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Email</label>
+                                    <span class="detail-value">${userData.email}</span>
+                                    <input type="hidden" id="email" value="${userData.email}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Department</label>
+                                    <span class="detail-value">${userData.department}</span>
+                                    <input type="hidden" id="department" value="${userData.department}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Manager Name</label>
+                                    <span class="detail-value">${userData.manager.name}</span>
+                                    <input type="hidden" id="managerName" value="${userData.manager.name}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Manager Email</label>
+                                    <span class="detail-value">${userData.manager.email}</span>
+                                    <input type="hidden" id="managerEmail" value="${userData.manager.email}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Division</label>
+                                    <span class="division-badge">RSF</span>
+                                    <input type="hidden" id="division" value="RSF">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time Information Section -->
+                    <div class="detail-section mb-4">
+                        <h5 class="section-title mb-3">Time Activity</h5>
+                        <div class="row g-3">
+                            <div class="row g-3 mb-3 time-activity-cards">
+                                <div class="col-6">
+                                    <div class="detail-status-card check-in">
+                                        <div class="detail-info-group">
+                                            <label class="detail-label">Check In Time</label>
+                                            <input type="time" class="form-control time-input" id="checkInTime" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="detail-status-card check-out">
+                                        <div class="detail-info-group">
+                                            <label class="detail-label">Check Out Time</label>
+                                            <input type="time" class="form-control time-input" id="checkOutTime">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Created By</label>
+                                    <span class="detail-value">${userName}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Created On</label>
+                                    <span class="detail-value">${formattedDateTime}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Modified By</label>
+                                    <span class="detail-value">${userName}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Modified On</label>
+                                    <span class="detail-value">${formattedDateTime}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detail Activity Section -->
+                    <div class="detail-section mb-4">
+                        <h5 class="section-title mb-3">Detail Activity</h5>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="activityTitle">Activity Title</label>
+                                    <input type="text" class="form-control" id="activityTitle" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="huddle">Related Huddle Subject (If Any)</label>
+                                    <input type="text" class="form-control" id="huddle">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="projectSproBest">Project SproBest</label>
+                                    <input type="text" class="form-control" id="projectSproBest" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="projectName">Project Name</label>
+                                    <input type="text" class="form-control" id="projectName" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Software Development</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="softwareDev">
+                                        <label class="form-check-label" for="softwareDev">Yes</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="application">Application</label>
+                                    <input type="text" class="form-control" id="application" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="programId">Program ID</label>
+                                    <input type="text" class="form-control" id="programId" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail-info-group">
+                                    <label class="detail-label">Category</label>
+                                    <div class="d-flex gap-2">
+                                        <input type="text" class="form-control" id="categoryType" placeholder="Type" required>
+                                        <input type="text" class="form-control" id="categoryArea" placeholder="Area" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="activityNote">Activity Note</label>
+                                    <textarea class="form-control activity-note" id="activityNote" rows="3" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="detail-info-group">
+                                    <label class="detail-label" for="activityDescription">Description</label>
+                                    <textarea class="form-control activity-note" id="activityDescription" rows="3" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-new-activity">
+                            <i class="bi bi-plus-lg"></i>Add Activity
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    `;
+}
+
 // Function to show detail view
 function showDetailView(cardData) {
     // First update the view state
@@ -654,44 +950,10 @@ function showDetailView(cardData) {
         window.scrollTo({ 
             top: 0, 
             behavior: 'smooth',
-            // Add these options to ensure better mobile support
             block: 'start',
             inline: 'nearest'
         });
     });
-}
-
-// Function to show list view
-function showListView() {
-    // Scroll to top when showing list view
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    currentView = 'list';
-    selectedCard = null;
-    
-    // Restore search section with the CORRECT button structure
-    const searchSection = document.querySelector('.search-section');
-    searchSection.innerHTML = `
-        <div class="row align-items-center">
-            <div class="col">
-                <div class="input-group">
-                    <input type="text" class="form-control search-input" placeholder="Search RDA...">
-                    <button class="btn btn-refresh">
-                        <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-
-    // Restore event listeners
-    initializeEventListeners();
-    
-    // Show pagination
-    document.querySelector('.pagination-wrapper').style.display = 'block';
-    
-    // Render cards
-    renderCards();
 }
 
 // Function to generate detail view HTML
@@ -775,42 +1037,26 @@ function generateDetailViewHTML(data) {
                             </div>
                             <div class="col-md-6">
                                 <div class="detail-info-group">
-                                    <label class="detail-label">Duration</label>
-                                    <span class="detail-value">${data.duration || '-'}</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
-                                    <label class="detail-label">Status</label>
-                                    <div class="d-inline-block">
-                                        <span class="status-badge status-${data.status} large-badge">
-                                            ${data.status === 'check-in' ? 'Check In' : 'Check Out'}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="detail-info-group">
                                     <label class="detail-label">Created By</label>
-                                    <span class="detail-value">Elon Musk</span>
+                                    <span class="detail-value">${data.createdBy || data.employee.name}</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label">Created On</label>
-                                    <span class="detail-value">March 15, 2024 09:00 AM</span>
+                                    <span class="detail-value">${data.createdOn || '-'}</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label">Modified By</label>
-                                    <span class="detail-value">${data.employee.name}</span>
+                                    <span class="detail-value">${data.modifiedBy || data.employee.name}</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="detail-info-group">
                                     <label class="detail-label">Modified On</label>
-                                    <span class="detail-value">March 18, 2024 02:15 PM</span>
+                                    <span class="detail-value">${data.modifiedOn || '-'}</span>
                                 </div>
                             </div>
                         </div>
@@ -988,8 +1234,95 @@ function addCardClickHandlers() {
     });
 }
 
+// Function to get logged in user name
+function getLoggedInUserName() {
+    const userNameElement = document.querySelector('.user-name strong');
+    return userNameElement ? userNameElement.textContent : 'Unknown User';
+}
+
+// Function to handle form submission
+function handleNewActivitySubmit(e) {
+    e.preventDefault();
+    
+    // Get current date and time for timestamps
+    const now = new Date();
+    const timestamp = now.toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+
+    // Get logged in user name
+    const userName = getLoggedInUserName();
+
+    // Create new activity object from form data
+    const newActivity = {
+        title: document.getElementById('activityTitle').value,
+        status: document.getElementById('checkOutTime').value ? 'check-out' : 'check-in',
+        employee: {
+            name: document.getElementById('fullName').value,
+            code: document.getElementById('initial').value,
+            email: document.getElementById('email').value,
+            department: document.getElementById('department').value,
+            manager: {
+                name: document.getElementById('managerName').value,
+                email: document.getElementById('managerEmail').value
+            }
+        },
+        division: document.getElementById('division').value,
+        checkIn: document.getElementById('checkInTime').value,
+        checkOut: document.getElementById('checkOutTime').value || null,
+        activityStatus: null,
+        duration: null,
+        activity: {
+            application: document.getElementById('application').value,
+            programId: document.getElementById('programId').value,
+            huddle: document.getElementById('huddle').value,
+            project: {
+                sproBest: document.getElementById('projectSproBest').value,
+                name: document.getElementById('projectName').value
+            },
+            category: {
+                type: document.getElementById('categoryType').value,
+                area: document.getElementById('categoryArea').value
+            },
+            softwareDev: document.getElementById('softwareDev').checked,
+            note: document.getElementById('activityNote').value,
+            description: document.getElementById('activityDescription').value
+        },
+        approval: {
+            status: '',
+            approver: '',
+            time: ''
+        },
+        createdBy: userName,
+        modifiedBy: userName,
+        createdOn: timestamp,
+        modifiedOn: timestamp
+    };
+
+    // Add the new activity to the data array
+    cardData.unshift(newActivity);
+    filteredData = [...cardData];
+
+    // Show success message
+    alert('Activity added successfully!');
+
+    // Return to list view
+    showListView();
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
     renderCards();
+
+    // Add click handler for new activity button
+    document.querySelector('.btn-new-activity').addEventListener('click', (e) => {
+        e.preventDefault();
+        showNewActivityForm();
+    });
 }); 
