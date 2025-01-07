@@ -1,81 +1,73 @@
-# RDA (Realta Daily Activity) Dashboard
+# Realta Daily Activity (RDA) System
 
-## 🌟 Overview
-A modern, responsive web application for managing and tracking daily activities within Realta's ecosystem. Built with a focus on user experience and performance, featuring real-time updates and an intuitive interface.
+A modern web-based daily activity tracking system for Realta employees. This system allows employees to log their daily activities, track time, and manage approvals efficiently.
 
-## 🚀 Features
+## Features
 
-### Core Functionality
-- **Activity Management**
-  - Create new activities
-  - Track activity status
-  - Monitor progress
-  - View activity history
+- 📝 Activity Tracking
+  - Create new daily activities
+  - Track check-in and check-out times
+  - Add detailed activity notes and descriptions
+  - Categorize activities with main categories and types
 
-### User Interface
-- **Modern Dashboard**
-  - Clean, intuitive layout
-  - Responsive design (mobile-first)
+- 👥 User Management
+  - Employee profiles with roles and divisions
+  - Manager approval system
+  - Activity status tracking
+
+- 🔍 Search & Filter
+  - Advanced search functionality
+  - Favorite searches feature
+  - Filter by various criteria
+
+- 📱 Responsive Design
+  - Works seamlessly on desktop and mobile devices
+  - Modern and intuitive interface
   - Real-time updates
-  - Dark/light mode support
 
-### Search & Filter
-- **Advanced Search Capabilities**
-  - Favorite searches
-  - Quick filters
-  - Custom search parameters
+## Technologies Used
 
-### User Experience
-- **Streamlined Workflow**
-  - One-click actions
-  - Keyboard shortcuts
-  - Intuitive navigation
-  - Progress tracking
-
-## 🛠 Technical Stack
-
-- **Frontend**
+- Frontend:
   - HTML5
-  - CSS3 (with modern features)
+  - CSS3 (with responsive design)
   - JavaScript (ES6+)
   - Bootstrap 5
   - Bootstrap Icons
 
-## 🔧 Setup & Installation
+## Setup Instructions
 
-1. **Clone the Repository**
+1. Clone the repository:
    ```bash
-   git clone https://github.com/alexandephilia/RDA-Activity.git
+   git clone [repository-url]
+   ```
+
+2. Open the project directory:
+   ```bash
    cd RDA-Activity
    ```
 
-2. **Open in Browser**
-   - Open `index.html` in your preferred browser
-   - For development, use a local server:
-     ```bash
-     python -m http.server 8000
-     # or
-     php -S localhost:8000
-     ```
+3. Open `index.html` in your web browser or set up a local server.
 
-## 💻 Development
+## Project Structure
 
-### Prerequisites
-- Modern web browser
-- Basic understanding of HTML, CSS, and JavaScript
-- Text editor or IDE (VS Code recommended)
-
-### Code Structure
 ```
 RDA-Activity/
-├── index.html          # Main entry point
-├── detail.css          # Detailed styles
+├── index.html          # Main application page
 ├── js/
 │   └── app.js         # Application logic
-└── .gitignore         # Git ignore rules
+├── css/
+│   └── detail.css     # Detailed styles
+└── README.md          # Project documentation
 ```
 
-## 🤝 Contributing
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -83,16 +75,8 @@ RDA-Activity/
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
+## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is proprietary and confidential. Unauthorized copying of files, via any medium is strictly prohibited.
 
-## 🙏 Acknowledgments
-
-- Bootstrap team for the excellent framework
-- Contributors and maintainers
-- Realta team for inspiration and support
-
----
-
-Made with ❤️ by [alexandephilia](https://github.com/alexandephilia)
+© 2024 Realta. All rights reserved.

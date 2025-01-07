@@ -1007,8 +1007,11 @@ function generateNewActivityFormHTML(userData, formattedDateTime) {
 
                     <!-- Submit Button -->
                     <div class="text-end">
-                        <button type="submit" class="btn btn-new-activity">
+                        <button type="submit" class="btn btn-new-activity me-2">
                             <i class="bi bi-save"></i>Save
+                        </button>
+                        <button type="button" class="btn btn-new-activity">
+                            <i class="bi bi-check2-circle"></i>Approve
                         </button>
                     </div>
                 </div>
