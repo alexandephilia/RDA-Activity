@@ -1085,6 +1085,46 @@ function generateDetailViewHTML(data) {
         categoryType = data.activity.category.type || categoryMapping[data.activity.category.main][0];
     }
 
+    // Modify the approval section to include buttons when needed
+    const approvalSection = `
+        <!-- Approval Section -->
+        <div class="detail-approval-section">
+            <h5 class="section-title mb-3">Approval</h5>
+            <div class="approval-card">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="detail-info-group">
+                            <label class="detail-label">Status</label>
+                            ${data.approval.status ? `
+                                <span class="approval-badge approval-${data.approval.status} large-badge">
+                                    ${data.approval.status.charAt(0).toUpperCase() + data.approval.status.slice(1)}
+                                </span>
+                            ` : '<span class="detail-value">-</span>'}
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="detail-info-group text-md-end mt-2">
+                            <label class="detail-label">Approved By</label>
+                            <div class="approver-info">
+                                <span class="detail-value">${data.approval.approver || '-'}</span>
+                                ${data.approval.time ? `
+                                    <small class="text-muted ms-2">${data.approval.time.split(' ')[0]}</small>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ${data.activityStatus !== 'completed' ? `
+                <div class="text-end mt-3">
+                    <button class="btn btn-new-activity" onclick="handleApprove(${cardData.indexOf(data)})">
+                        <i class="bi bi-check-circle"></i> Approve
+                    </button>
+                </div>
+            ` : ''}
+        </div>
+    `;
+
     return `
         <div class="col-12">
             <div class="card detail-card">
@@ -1293,35 +1333,7 @@ function generateDetailViewHTML(data) {
                         </div>
                     </div>
 
-                    <!-- Approval Section -->
-                    <div class="detail-approval-section">
-                        <h5 class="section-title mb-3">Approval</h5>
-                        <div class="approval-card">
-                            <div class="row align-items-center">
-                                <div class="col-md-4">
-                                    <div class="detail-info-group">
-                                        <label class="detail-label">Status</label>
-                                        ${data.approval.status ? `
-                                            <span class="approval-badge approval-${data.approval.status} large-badge">
-                                                ${data.approval.status.charAt(0).toUpperCase() + data.approval.status.slice(1)}
-                                            </span>
-                                        ` : '<span class="detail-value">-</span>'}
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="detail-info-group text-md-end mt-2">
-                                        <label class="detail-label">Approved By</label>
-                                        <div class="approver-info">
-                                            <span class="detail-value">${data.approval.approver || '-'}</span>
-                                            ${data.approval.time ? `
-                                                <small class="text-muted ms-2">${data.approval.time.split(' ')[0]}</small>
-                                            ` : ''}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    ${approvalSection}
                 </div>
             </div>
         </div>
@@ -1466,6 +1478,39 @@ function toggleSection(header) {
     const content = header.nextElementSibling;
     header.classList.toggle('collapsed');
     content.classList.toggle('collapsed');
+}
+
+// Function to handle approval action
+function handleApprove(cardIndex) {
+    const now = new Date();
+    const timestamp = now.toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+
+    // Update the card data
+    cardData[cardIndex].approval = {
+        status: 'approved',
+        approver: 'Jensen Huang',
+        time: timestamp
+    };
+    cardData[cardIndex].activityStatus = 'completed';
+
+    // Update filtered data to match cardData
+    filteredData = cardData.map(card => ({...card}));
+
+    // Show success message
+    alert('Activity approved successfully!');
+
+    // First update the list view data
+    renderCards();
+    
+    // Then show the updated detail view
+    showDetailView(cardData[cardIndex]);
 }
 
 // Initialize the page
