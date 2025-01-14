@@ -166,16 +166,23 @@
      align-items: center;
      justify-content: center;
      border-radius: 6px;
-     background-color: #d48bff96 !important;
+     background: linear-gradient(135deg, #d48bff96 0%, #9a4cc7e1 100%) !important;
      border: none;
-     color: #6c1268a1 !important;
+     color: #292729a1 !important;
      transition: all 0.2s ease;
+     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+         7px 7px 20px 0px rgba(0, 0, 0, .1),
+         4px 4px 5px 0px rgba(0, 0, 0, .1);
  }
 
  .btn-back:hover {
-     background-color: var(--button-hover-color);
-     transform: translateX(-3px);
+     background: linear-gradient(135deg, #b571d4b4 0%, #8339b6d3 100%) !important;
+     transform: translateX(-2px);
      color: white;
+     box-shadow: 4px 3px 3px 0 rgba(255, 255, 255, .5),
+         -4px -4px 6px 0 rgba(168, 177, 187, 0.5),
+         inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+         inset 4px 4px 6px 0 rgba(53, 52, 52, 0.4);
  }
 
  .btn-back i {

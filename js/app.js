@@ -1052,9 +1052,7 @@ function generateNewActivityFormHTML(userData, formattedDateTime) {
                         <button type="submit" class="btn btn-new-activity me-2">
                             <i class="bi bi-save"></i>Save
                         </button>
-                        <button type="button" class="btn btn-new-activity">
-                            <i class="bi bi-check2-circle"></i>Approve
-                        </button>
+                   
                     </div>
                 </div>
             </form>
@@ -1406,19 +1404,30 @@ function initializeEventListeners() {
         }
     });
 
-    // Add dropdown label update functionality
+    // Set initial active item styling with purple theme
+    const defaultActiveItem = document.querySelector('.favorite-searches .dropdown-item.active');
+    if (defaultActiveItem) {
+        defaultActiveItem.style.backgroundColor = '#EDE9FE'; // Lighter purple background
+        defaultActiveItem.style.color = '#6D28D9'; // Darker purple text
+    }
+
+    // Add dropdown label update functionality with updated active styling
     document.querySelectorAll('.favorite-searches .dropdown-item').forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const selectedText = e.target.textContent.trim();
 
-            // Remove active class from all items
+            // Remove active class and reset styles from all items
             document.querySelectorAll('.favorite-searches .dropdown-item').forEach(i => {
                 i.classList.remove('active');
+                i.style.backgroundColor = '';
+                i.style.color = '';
             });
 
-            // Add active class to selected item
+            // Add active class and custom style to selected item
             e.target.classList.add('active');
+            e.target.style.backgroundColor = '#EDE9FE'; // Lighter purple background
+            e.target.style.color = '#6D28D9'; // Darker purple text
 
             // Update state and UI
             currentViewSelection = selectedText;
@@ -1429,6 +1438,21 @@ function initializeEventListeners() {
             currentPage = 1; // Reset to first page
             filterData(searchInput.value);
             renderCards();
+        });
+
+        // Add hover effect with purple theme
+        item.addEventListener('mouseenter', (e) => {
+            if (!e.target.classList.contains('active')) {
+                e.target.style.backgroundColor = '#EDE9FE'; // Lighter purple background
+                e.target.style.color = '#6D28D9'; // Darker purple text
+            }
+        });
+
+        item.addEventListener('mouseleave', (e) => {
+            if (!e.target.classList.contains('active')) {
+                e.target.style.backgroundColor = '';
+                e.target.style.color = '';
+            }
         });
     });
 
