@@ -1,1180 +1,1332 @@
+ /* Font Faces */
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNovaT-Thin.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNovaT-Thin.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNovaT-Thin.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNovaT-Thin.eot');
+     font-weight: 100;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-ThinIt.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-ThinIt.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-ThinIt.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-ThinIt.eot');
+     font-weight: 100;
+     font-style: italic;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-Light.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-Light.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-Light.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-Light.eot');
+     font-weight: 300;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-LightIt.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-LightIt.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-LightIt.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-LightIt.eot');
+     font-weight: 300;
+     font-style: italic;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-Regular.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-Regular.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-Regular.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-Regular.eot');
+     font-weight: 400;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-RegularIt.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-RegularIt.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-RegularIt.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-RegularIt.eot');
+     font-weight: 400;
+     font-style: italic;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-Semibold.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-Semibold.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-Semibold.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-Semibold.eot');
+     font-weight: 600;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-SemiboldIt.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-SemiboldIt.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-SemiboldIt.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-SemiboldIt.eot');
+     font-weight: 600;
+     font-style: italic;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-Bold.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-Bold.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-Bold.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-Bold.eot');
+     font-weight: 700;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-BoldIt.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-BoldIt.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-BoldIt.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-BoldIt.eot');
+     font-weight: 700;
+     font-style: italic;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-Extrabld.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-Extrabld.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-Extrabld.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-Extrabld.eot');
+     font-weight: 800;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.eot');
+     font-weight: 800;
+     font-style: italic;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-Black.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-Black.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-Black.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-Black.eot');
+     font-weight: 900;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'Proxima Nova';
+     src: url('../fonts/proxima-nova/ProximaNova-BlackIt.woff2') format('woff2'),
+         url('../fonts/proxima-nova/ProximaNova-BlackIt.woff') format('woff'),
+         url('../fonts/proxima-nova/ProximaNova-BlackIt.ttf') format('truetype'),
+         url('../fonts/proxima-nova/ProximaNova-BlackIt.eot');
+     font-weight: 900;
+     font-style: italic;
+ }
+
+ /* Bootstrap Icons Font */
+ @font-face {
+     font-family: "bootstrap-icons";
+     src: url("fonts/bootstrap-icons.woff2") format("woff2"),
+         url("fonts/bootstrap-icons.woff") format("woff");
+ }
+
+
  /* Detail View Styles */
  .cursor-pointer {
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cursor-pointer:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.btn-back {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    background-color: #d48bff96 !important;
-    border: none;
-    color: #6c1268a1 !important;
-    transition: all 0.2s ease;
-}
-
-.btn-back:hover {
-    background-color: var(--button-hover-color);
-    transform: translateX(-3px);
-    color: white;
-}
-
-.btn-back i {
-    font-size: 1.1rem;
-}
-
-.detail-card {
-    border: none;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    border-radius: 16px;
-    transform: none !important;
-    transition: none !important;
-}
-
-.detail-card:hover {
-    transform: none !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
-}
-
-.detail-title {
-    color: #2c3237;
-    font-weight: 600;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.detail-info-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.detail-label {
-    color: #6c757d;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.detail-value {
-    color: #2c3237;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-/* Updated division badge styles */
-.division-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.35rem 0.75rem;
-    background-color: #f6f6f746;
-    border: 1px solid #d2c4c436;
-    border-radius: 6px;
-    color: #6d7175;
-    font-weight: 500;
-    font-size: 0.85rem;
-    width: fit-content;
-    max-width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.detail-status-card {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1.25rem;
-    border: 1px solid rgba(0,0,0,0.05);
-    height: 100%;
-    margin: 0;
-}
-
-.detail-status-card .row {
-    margin: 0 -0.5rem;
-}
-
-.detail-status-card .col-md-3,
-.detail-status-card .col-6 {
-    padding: 0 0.5rem;
-}
-
-.status-header {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    white-space: nowrap;
-}
-
-.status-badge.status-check-out {
-    margin-left: 0;
-}
-
-.large-badge {
-    font-size: 0.9rem !important;
-    padding: 0.5rem 1rem !important;
-}
-
-.detail-approval-section {
-    background-color: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.detail-approval-section .section-title {
-    color: #2c3237;
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.approval-card {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1.25rem;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.approver-info {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.5rem;
-}
-
-/* Time info styles for mobile */
-.detail-time-info .row {
-    margin: 0 -0.5rem;
-}
-
-.detail-time-info .col-md-6,
-.detail-time-info .col-6 {
-    padding: 0 0.5rem;
-}
-
-@media (max-width: 768px) {
-    .detail-status-card {
-        padding: 1rem;
-        height: 100%;
-    }
-    
-    .detail-status-card .detail-info-group {
-        height: 100%;
-    }
-
-    .large-badge {
-        font-size: 0.85rem !important;
-        padding: 0.4rem 0.8rem !important;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-status-card {
-        padding: 0.875rem;
-    }
-
-    .large-badge {
-        font-size: 0.8rem !important;
-        padding: 0.35rem 0.7rem !important;
-    }
-}
-
-.activity-status.status-completed,
-.activity-status.status-postponed,
-.activity-status.status-draft {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 6px;
-    font-weight: 500;
-    width: fit-content;
-    white-space: nowrap;
-}
-
-.activity-status.status-completed {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid rgba(21, 87, 36, 0.15);
-}
-
-.activity-status.status-postponed {
-    background-color: #fff3cd;
-    color: #856404;
-    border: 1px solid rgba(133, 100, 4, 0.15);
-}
-
-.activity-status.status-draft {
-    background-color: #e2e5e9;
-    color: #495057;
-    border: 1px solid rgba(73, 80, 87, 0.083);
-}
-
-.activity-status.large-badge {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .activity-status.large-badge {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .activity-status.large-badge {
-        padding: 0.35rem 0.7rem;
-        font-size: 0.8rem;
-    }
-}
-
-.detail-section {
-    background-color: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.detail-section .section-title {
-    color: #2c3237;
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.detail-section .row {
-    margin: 0 -0.75rem;
-}
-
-.detail-section .col-md-6,
-.detail-section .col-md-3 {
-    padding: 0 0.75rem;
-}
-
-.detail-info-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    height: 100%;
-}
-
-.detail-status-card {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1.25rem;
-    height: 100%;
-    margin: 0;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.detail-approval-section {
-    background-color: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-@media (max-width: 768px) {
-    .detail-section {
-        padding: 0.8rem;
-    }
-
-    .detail-section .section-title {
-        font-size: 0.9rem;
-        margin-bottom: 0.8rem;
-        padding-bottom: 0.4rem;
-    }
-
-    .detail-section .row {
-        margin: 0 -0.3rem;
-    }
-
-    .detail-section .col-md-6,
-    .detail-section .col-md-3,
-    .detail-section .col-6 {
-        padding: 0 0.3rem;
-    }
-
-    .detail-info-group {
-        gap: 0.25rem;
-        min-height: 50px;
-    }
-
-    .detail-label {
-        font-size: 0.75rem;
-    }
-
-    .detail-value {
-        font-size: 0.85rem;
-    }
-
-    .detail-title {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-section {
-        padding: 0.7rem;
-        margin-bottom: 0.7rem;
-    }
-
-    .detail-section .section-title {
-        font-size: 0.85rem;
-        margin-bottom: 0.7rem;
-        padding-bottom: 0.35rem;
-    }
-
-    .detail-section .row {
-        margin: 0 -0.25rem;
-    }
-
-    .detail-section .col-md-6,
-    .detail-section .col-md-3,
-    .detail-section .col-6 {
-        padding: 0 0.25rem;
-    }
-
-    .detail-info-group {
-        gap: 0.2rem;
-        min-height: 45px;
-    }
-
-    .detail-label {
-        font-size: 0.7rem;
-    }
-
-    .detail-value {
-        font-size: 0.8rem;
-    }
-
-    .detail-title {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .detail-approval-section {
-        padding: 0.7rem;
-        margin-top: 0.7rem;
-    }
-
-    .approval-card {
-        padding: 0.7rem;
-    }
-
-    .activity-note {
-        padding: 0.7rem;
-        font-size: 0.75rem;
-        min-height: 60px;
-    }
-}
-
-.activity-time-group {
-    display: none;
-}
-
-.category-badges {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-.category-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    background-color: #e3f2fd;
-    border: 1px solid rgba(25, 118, 210, 0.1);
-    border-radius: 8px;
-    color: #1976d2;
-    font-weight: 500;
-    font-size: 0.95rem;
-    min-width: 100px;
-    text-align: center;
-}
-
-.activity-note {
-    background-color: #f8f9fa;
-    border-radius: 6px;
-    padding: 1rem;
-    color: #495057;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    border: 1px solid rgba(0,0,0,0.05);
-    min-height: 80px;
-}
-
-.form-check-input:checked {
-    background-color: var(--button-color);
-    border-color: var(--button-color);
-}
-
-.form-check-input:disabled {
-    opacity: 1;
-    pointer-events: none;
-}
-
-.form-check-label {
-    color: #495057;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .activity-time-group {
-        padding: 0.875rem;
-    }
-
-    .category-badges {
-        gap: 0.5rem;
-    }
-
-    .category-badge {
-        font-size: 0.9rem;
-        padding: 0.45rem 0.9rem;
-        min-width: 90px;
-    }
-
-    .activity-note {
-        padding: 0.875rem;
-        font-size: 0.85rem;
-    }
-
-    .form-check-label {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .activity-time-group {
-        padding: 0.75rem;
-    }
-
-    .category-badges {
-        gap: 0.4rem;
-    }
-
-    .category-badge {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-        min-width: 80px;
-    }
-
-    .activity-note {
-        padding: 0.75rem;
-        font-size: 0.8rem;
-        min-height: 70px;
-    }
-
-    .form-check-label {
-        font-size: 0.8rem;
-    }
-}
-
-/* Update time information styles */
-.detail-section .col-6 {
-    padding: 0 0.75rem;
-}
-
-@media (max-width: 768px) {
-    .detail-section .col-6 {
-        padding: 0 0.5rem;
-    }
-
-    .detail-info-group {
-        min-height: 50px;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-section .col-6 {
-        padding: 0 0.4rem;
-    }
-
-    .detail-info-group {
-        min-height: 50px;
-    }
-
-    .detail-info-group .status-badge {
-        margin-top: 0.25rem;
-    }
-}
-
-/* Employee code in detail view */
-.detail-section .employee-code {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-/* Division badge in detail view */
-.detail-section .division-badge {
-    font-size: 0.95rem;
-    padding: 0.4rem 0.85rem;
-}
-
-@media (max-width: 768px) {
-    .detail-section .employee-code {
-        font-size: 0.95rem;
-    }
-    
-    .detail-section .division-badge {
-        font-size: 0.9rem;
-        padding: 0.35rem 0.8rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-section .employee-code {
-        font-size: 0.9rem;
-    }
-    
-    .detail-section .division-badge {
-        font-size: 0.85rem;
-        padding: 0.35rem 0.75rem;
-    }
-}
-
-/* Category badge in detail view */
-.detail-section .category-badge {
-    font-size: 0.93rem;
-    padding: 0.4rem 0.95rem;
-    min-width: 102px;
-}
-
-@media (max-width: 768px) {
-    .detail-section .category-badge {
-        font-size: 0.82rem;
-        padding: 0.32rem 0.75rem;
-        min-width: 85px;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-section .category-badge {
-        font-size: 0.75rem;
-        padding: 0.28rem 0.65rem;
-        min-width: 75px;
-    }
-}
-
-/* Check in/out card colors */
-.detail-status-card.check-in {
-    background-color: #e3f2fd;
-    border: 2px solid #9b92921a;
-    max-width: 180px;
-    margin: 0;
-    position: relative;
-}
-
-.detail-status-card.check-in .detail-label {
-    color: #1976d2;
-    opacity: 0.8;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.35rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid rgba(25, 118, 210, 0.15);
-}
-
-.detail-status-card.check-in .detail-value {
-    color: #1976d2;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.detail-status-card.check-out {
-    background-color: #fee2e2;
-    border: 2px solid #9b92921a;
-    max-width: 180px;
-    margin: 0;
-    position: relative;
-}
-
-.detail-status-card.check-out .detail-label {
-    color: #b91c1c;
-    opacity: 0.8;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.35rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid rgba(185, 28, 28, 0.15);
-}
-
-.detail-status-card.check-out .detail-value {
-    color: #b91c1c;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-@media (max-width: 768px) {
-    .detail-status-card.check-in,
-    .detail-status-card.check-out {
-        max-width: 130px;
-        padding: 0.65rem;
-    }
-
-    .detail-status-card.check-in .detail-value,
-    .detail-status-card.check-out .detail-value {
-        font-size: 0.82rem;
-    }
-
-    .detail-status-card.check-in .detail-label,
-    .detail-status-card.check-out .detail-label {
-        font-size: 0.68rem;
-        margin-bottom: 0.25rem;
-        padding-bottom: 0.25rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-status-card.check-in,
-    .detail-status-card.check-out {
-        max-width: 110px;
-        padding: 0.55rem;
-    }
-
-    .detail-status-card.check-in .detail-value,
-    .detail-status-card.check-out .detail-value {
-        font-size: 0.78rem;
-    }
-
-    .detail-status-card.check-in .detail-label,
-    .detail-status-card.check-out .detail-label {
-        font-size: 0.63rem;
-        margin-bottom: 0.2rem;
-        padding-bottom: 0.2rem;
-    }
-}
-
-/* Header title and back button styles */
-.detail-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.detail-header h4 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2c3237;
-}
-
-.btn-back {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    background-color: var(--button-color);
-    border: none;
-    color: white;
-    transition: all 0.2s ease;
-}
-
-.btn-back i {
-    font-size: 1.1rem;
-}
-
-@media (max-width: 768px) {
-    .detail-header h4 {
-        font-size: 1.1rem;
-    }
-
-    .btn-back {
-        width: 32px;
-        height: 32px;
-    }
-
-    .btn-back i {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-header h4 {
-        font-size: 1rem;
-    }
-
-    .btn-back {
-        width: 28px;
-        height: 28px;
-    }
-
-    .btn-back i {
-        font-size: 0.9rem;
-    }
-}
-
-.pagination-wrapper {
-    position: relative;
-    z-index: 1;
-    padding-top: 0.75rem;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin: 0;
-    padding-right: 0.75rem;
-}
-
-.pagination {
-    margin: 0;
-    gap: 0.25rem;
-    display: flex;
-    justify-content: flex-end;
-}
-
-@media (max-width: 768px) {
-    .pagination-wrapper {
-        padding-right: 0.5rem;
-    }
-
-    .pagination {
-        gap: 0.2rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .pagination-wrapper {
-        padding-top: 0.5rem;
-        padding-right: 0.4rem;
-    }
-
-    .pagination {
-        gap: 0.15rem;
-    }
-}
-
-.detail-status-card.check-in,
-.detail-status-card.check-out {
-    max-width: 180px;
-    margin: 0;
-    position: relative;
-    padding: 0.6rem;
-    height: 70px;
-}
-
-.detail-status-card.check-in .detail-label,
-.detail-status-card.check-out .detail-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    margin-bottom: 0.2rem;
-    padding-bottom: 0.2rem;
-    line-height: 1;
-    text-align: center;
-}
-
-.detail-status-card.check-in .detail-value,
-.detail-status-card.check-out .detail-value {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .detail-status-card.check-in,
-    .detail-status-card.check-out {
-        padding: 0.5rem;
-        height: 60px;
-    }
-
-    .detail-status-card.check-in .detail-value,
-    .detail-status-card.check-out .detail-value {
-        font-size: 0.82rem;
-    }
-
-    .detail-status-card.check-in .detail-label,
-    .detail-status-card.check-out .detail-label {
-        font-size: 0.65rem;
-        margin-bottom: 0.15rem;
-        padding-bottom: 0.15rem;
-        letter-spacing: 0.2px;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-status-card.check-in,
-    .detail-status-card.check-out {
-        padding: 0.4rem;
-        height: 55px;
-    }
-
-    .detail-status-card.check-in .detail-value,
-    .detail-status-card.check-out .detail-value {
-        font-size: 0.78rem;
-    }
-
-    .detail-status-card.check-in .detail-label,
-    .detail-status-card.check-out .detail-label {
-        font-size: 0.6rem;
-        margin-bottom: 0.1rem;
-        padding-bottom: 0.1rem;
-        letter-spacing: 0;
-    }
-}
-
-/* Add these styles for the time activity cards container */
-.time-activity-cards {
-    position: relative;
-    display: flex;
-    gap: 1rem;
-}
-
-.time-activity-cards > div {
-    flex: 1;
-}
-
-.detail-status-card.check-in,
-.detail-status-card.check-out {
-    width: 100%;
-    margin: 0;
-    position: relative;
-    padding: 0.8rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.detail-status-card.check-in .detail-label,
-.detail-status-card.check-out .detail-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    margin-bottom: 0.3rem;
-    padding-bottom: 0.3rem;
-    line-height: 1;
-    text-align: center;
-}
-
-.detail-status-card.check-in .detail-value,
-.detail-status-card.check-out .detail-value {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .time-activity-cards {
-        gap: 0.5rem;
-    }
-
-    .detail-status-card.check-in,
-    .detail-status-card.check-out {
-        padding: 0.6rem;
-        height: 65px;
-    }
-
-    .detail-status-card.check-in .detail-value,
-    .detail-status-card.check-out .detail-value {
-        font-size: 0.82rem;
-    }
-
-    .detail-status-card.check-in .detail-label,
-    .detail-status-card.check-out .detail-label {
-        font-size: 0.65rem;
-        margin-bottom: 0.25rem;
-        padding-bottom: 0.25rem;
-        letter-spacing: 0.2px;
-    }
-}
-
-@media (max-width: 576px) {
-    .time-activity-cards {
-        gap: 0.35rem;
-    }
-
-    .time-activity-cards > div {
-        width: 50% !important;
-    }
-
-    .detail-status-card.check-in,
-    .detail-status-card.check-out {
-        padding: 0.5rem 0.35rem;
-        height: 60px;
-    }
-
-    .detail-status-card.check-in .detail-value,
-    .detail-status-card.check-out .detail-value {
-        font-size: 0.75rem;
-    }
-
-    .detail-status-card.check-in .detail-label,
-    .detail-status-card.check-out .detail-label {
-        font-size: 0.6rem;
-        margin-bottom: 0.2rem;
-        padding-bottom: 0.2rem;
-        letter-spacing: 0;
-    }
-}
-
-/* Adjust the check-in/out cards container */
-.detail-status-card.check-in,
-.detail-status-card.check-out {
-    position: relative;
-    z-index: 1;
-}
-
-/* Form Input Styles */
-.form-control {
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 6px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-    color: #495057;
-    background-color: #fff;
-    transition: all 0.2s ease;
-}
-
-.form-control:focus {
-    border-color: var(--button-color);
-    box-shadow: 0 0 0 0.2rem rgba(182, 88, 196, 0.15);
-}
-
-.form-control::placeholder {
-    color: #6c757d;
-    opacity: 0.7;
-}
-
-.time-input {
-    background-color: transparent;
-    border: 1px solid rgba(0,0,0,0.1);
-    color: inherit;
-    text-align: center;
-    font-weight: 600;
-    padding: 0.35rem;
-}
-
-.detail-status-card.check-in .time-input {
-    color: #1976d2;
-}
-
-.detail-status-card.check-out .time-input {
-    color: #b91c1c;
-}
-
-.time-input:focus {
-    background-color: rgba(255,255,255,0.1);
-}
-
-textarea.activity-note {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.form-check-input {
-    width: 1.1rem;
-    height: 1.1rem;
-    margin-top: 0.2rem;
-    border: 1px solid rgba(0,0,0,0.15);
-    cursor: pointer;
-}
-
-.form-check-label {
-    padding-bottom: 0.2rem;
-    cursor: pointer;
-}
-
-/* Mobile Responsive Styles for Form */
-@media (max-width: 768px) {
-    .form-control {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.65rem;
-    }
-
-    .time-input {
-        padding: 0.3rem;
-        font-size: 0.85rem;
-    }
-
-    textarea.activity-note {
-        min-height: 80px;
-    }
-
-    .form-check-input {
-        width: 1rem;
-        height: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .form-control {
-        font-size: 0.8rem;
-        padding: 0.35rem 0.6rem;
-    }
-
-    .time-input {
-        padding: 0.25rem;
-        font-size: 0.8rem;
-    }
-
-    textarea.activity-note {
-        min-height: 70px;
-    }
-
-    .form-check-input {
-        width: 0.9rem;
-        height: 0.9rem;
-    }
-}
-
-/* Submit Button Styles */
-.btn-submit {
-    background-color: var(--button-color);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.btn-submit:hover {
-    background-color: var(--button-hover-color);
-    transform: translateY(-1px);
-}
-
-.btn-submit:active {
-    background-color: var(--button-active-color);
-    transform: translateY(0);
-}
-
-.btn-submit i {
-    font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-    .btn-submit {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-    }
-
-    .btn-submit i {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .btn-submit {
-        padding: 0.45rem 0.9rem;
-        font-size: 0.8rem;
-    }
-
-    .btn-submit i {
-        font-size: 0.85rem;
-    }
-}
-
-/* Form Select Styles */
-.form-select {
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 6px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-    color: #495057;
-    background-color: #fff;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23495057' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 16px 12px;
-    padding-right: 2.5rem;
-}
-
-.form-select:focus {
-    border-color: var(--button-color);
-    box-shadow: 0 0 0 0.2rem rgba(182, 88, 196, 0.15);
-}
-
-.form-select:hover {
-    border-color: var(--button-color);
-}
-
-.form-select option {
-    padding: 0.5rem;
-}
-
-.form-select option:hover {
-    background-color: rgba(182, 88, 196, 0.1);
-}
-
-.form-select:disabled,
-.form-select[readonly] {
-    background-color: #e9ecef;
-    opacity: 1;
-}
-
-/* Mobile Responsive Styles for Select */
-@media (max-width: 768px) {
-    .form-select {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.65rem;
-        padding-right: 2.25rem;
-        background-size: 14px 10px;
-    }
-}
-
-@media (max-width: 576px) {
-    .form-select {
-        font-size: 0.8rem;
-        padding: 0.35rem 0.6rem;
-        padding-right: 2rem;
-        background-size: 12px 9px;
-    }
-}
-
-/* Category Dropdown Styles */
-.detail-info-group .d-flex.gap-2 {
-    display: flex;
-    gap: 0.75rem !important;
-}
-
-.detail-info-group .d-flex.gap-2 .form-select {
-    flex: 1;
-    min-width: 0;
-}
-
-/* Ensure dropdowns don't overflow on mobile */
-@media (max-width: 768px) {
-    .detail-info-group .d-flex.gap-2 {
-        gap: 0.5rem !important;
-    }
-}
-
-@media (max-width: 576px) {
-    .detail-info-group .d-flex.gap-2 {
-        gap: 0.35rem !important;
-    }
-}
-
+     cursor: pointer;
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+
+ .cursor-pointer:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ }
+
+ .btn-back {
+     width: 36px;
+     height: 36px;
+     padding: 0;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 6px;
+     background-color: #d48bff96 !important;
+     border: none;
+     color: #6c1268a1 !important;
+     transition: all 0.2s ease;
+ }
+
+ .btn-back:hover {
+     background-color: var(--button-hover-color);
+     transform: translateX(-3px);
+     color: white;
+ }
+
+ .btn-back i {
+     font-size: 1.1rem;
+ }
+
+ .detail-card {
+     border: none;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+     border-radius: 16px;
+     transform: none !important;
+     transition: none !important;
+ }
+
+ .detail-card:hover {
+     transform: none !important;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+ }
+
+ .detail-title {
+     color: #2c3237;
+     font-weight: 600;
+     font-size: 1.5rem;
+     margin-bottom: 1.5rem;
+ }
+
+ .detail-info-group {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+ }
+
+ .detail-label {
+     color: #6c757d;
+     font-size: 0.85rem;
+     font-weight: 500;
+ }
+
+ .detail-value {
+     color: #2c3237;
+     font-size: 1rem;
+     font-weight: 500;
+ }
+
+ /* Updated division badge styles */
+ .division-badge {
+     display: inline-flex;
+     align-items: center;
+     padding: 0.35rem 0.75rem;
+     background-color: #f6f6f746;
+     border: 1px solid #d2c4c436;
+     border-radius: 6px;
+     color: #6d7175;
+     font-weight: 500;
+     font-size: 0.85rem;
+     width: fit-content;
+     max-width: 100%;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .detail-status-card {
+     background-color: #f8f9fa;
+     border-radius: 8px;
+     padding: 1.25rem;
+     border: 1px solid rgba(0, 0, 0, 0.05);
+     height: 100%;
+     margin: 0;
+ }
+
+ .detail-status-card .row {
+     margin: 0 -0.5rem;
+ }
+
+ .detail-status-card .col-md-3,
+ .detail-status-card .col-6 {
+     padding: 0 0.5rem;
+ }
+
+ .status-header {
+     margin-bottom: 1.5rem;
+     text-align: left;
+ }
+
+ .status-badge {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: fit-content;
+     white-space: nowrap;
+ }
+
+ .status-badge.status-check-out {
+     margin-left: 0;
+ }
+
+ .large-badge {
+     font-size: 0.9rem !important;
+     padding: 0.5rem 1rem !important;
+ }
+
+ .detail-approval-section {
+     background-color: white;
+     border-radius: 12px;
+     padding: 1.5rem;
+     border: 1px solid rgba(0, 0, 0, 0.05);
+ }
+
+ .detail-approval-section .section-title {
+     color: #2c3237;
+     font-weight: 600;
+     font-size: 1.1rem;
+     margin-bottom: 1.5rem;
+     padding-bottom: 0.75rem;
+     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+ }
+
+ .approval-card {
+     background-color: #f8f9fa;
+     border-radius: 8px;
+     padding: 1.25rem;
+     border: 1px solid rgba(0, 0, 0, 0.05);
+ }
+
+ .approver-info {
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     gap: 0.5rem;
+ }
+
+ /* Time info styles for mobile */
+ .detail-time-info .row {
+     margin: 0 -0.5rem;
+ }
+
+ .detail-time-info .col-md-6,
+ .detail-time-info .col-6 {
+     padding: 0 0.5rem;
+ }
+
+ @media (max-width: 768px) {
+     .detail-status-card {
+         padding: 1rem;
+         height: 100%;
+     }
+
+     .detail-status-card .detail-info-group {
+         height: 100%;
+     }
+
+     .large-badge {
+         font-size: 0.85rem !important;
+         padding: 0.4rem 0.8rem !important;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .detail-status-card {
+         padding: 0.875rem;
+     }
+
+     .large-badge {
+         font-size: 0.8rem !important;
+         padding: 0.35rem 0.7rem !important;
+     }
+ }
+
+ .activity-status.status-completed,
+ .activity-status.status-postponed,
+ .activity-status.status-draft {
+     display: inline-flex;
+     align-items: center;
+     border-radius: 6px;
+     font-weight: 500;
+     width: fit-content;
+     white-space: nowrap;
+ }
+
+ .activity-status.status-completed {
+     background-color: #d4edda;
+     color: #155724;
+     border: 1px solid rgba(21, 87, 36, 0.15);
+ }
+
+ .activity-status.status-postponed {
+     background-color: #fff3cd;
+     color: #856404;
+     border: 1px solid rgba(133, 100, 4, 0.15);
+ }
+
+ .activity-status.status-draft {
+     background-color: #e2e5e9;
+     color: #495057;
+     border: 1px solid rgba(73, 80, 87, 0.083);
+ }
+
+ .activity-status.large-badge {
+     padding: 0.5rem 1rem;
+     font-size: 0.9rem;
+ }
+
+ @media (max-width: 768px) {
+     .activity-status.large-badge {
+         padding: 0.4rem 0.8rem;
+         font-size: 0.85rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .activity-status.large-badge {
+         padding: 0.35rem 0.7rem;
+         font-size: 0.8rem;
+     }
+ }
+
+ .detail-section {
+     background-color: white;
+     border-radius: 12px;
+     padding: 1.5rem;
+     border: 1px solid rgba(0, 0, 0, 0.05);
+ }
+
+ .detail-section .section-title {
+     color: #2c3237;
+     font-weight: 600;
+     font-size: 1.1rem;
+     margin-bottom: 1.5rem;
+     padding-bottom: 0.75rem;
+     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+ }
+
+ .detail-section .row {
+     margin: 0 -0.75rem;
+ }
+
+ .detail-section .col-md-6,
+ .detail-section .col-md-3 {
+     padding: 0 0.75rem;
+ }
+
+ .detail-info-group {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+     height: 100%;
+ }
+
+ .detail-status-card {
+     background-color: #f8f9fa;
+     border-radius: 8px;
+     padding: 1.25rem;
+     height: 100%;
+     margin: 0;
+     border: 1px solid rgba(0, 0, 0, 0.05);
+ }
+
+ .detail-approval-section {
+     background-color: white;
+     border-radius: 12px;
+     padding: 1.5rem;
+     margin-top: 1.5rem;
+     border: 1px solid rgba(0, 0, 0, 0.05);
+ }
+
+ @media (max-width: 768px) {
+     .detail-section {
+         padding: 0.8rem;
+     }
+
+     .detail-section .section-title {
+         font-size: 0.9rem;
+         margin-bottom: 0.8rem;
+         padding-bottom: 0.4rem;
+     }
+
+     .detail-section .row {
+         margin: 0 -0.3rem;
+     }
+
+     .detail-section .col-md-6,
+     .detail-section .col-md-3,
+     .detail-section .col-6 {
+         padding: 0 0.3rem;
+     }
+
+     .detail-info-group {
+         gap: 0.25rem;
+         min-height: 50px;
+     }
+
+     .detail-label {
+         font-size: 0.75rem;
+     }
+
+     .detail-value {
+         font-size: 0.85rem;
+     }
+
+     .detail-title {
+         font-size: 1.2rem;
+         margin-bottom: 1rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .detail-section {
+         padding: 0.7rem;
+         margin-bottom: 0.7rem;
+     }
+
+     .detail-section .section-title {
+         font-size: 0.85rem;
+         margin-bottom: 0.7rem;
+         padding-bottom: 0.35rem;
+     }
+
+     .detail-section .row {
+         margin: 0 -0.25rem;
+     }
+
+     .detail-section .col-md-6,
+     .detail-section .col-md-3,
+     .detail-section .col-6 {
+         padding: 0 0.25rem;
+     }
+
+     .detail-info-group {
+         gap: 0.2rem;
+         min-height: 45px;
+     }
+
+     .detail-label {
+         font-size: 0.7rem;
+     }
+
+     .detail-value {
+         font-size: 0.8rem;
+     }
+
+     .detail-title {
+         font-size: 1.1rem;
+         margin-bottom: 0.8rem;
+     }
+
+     .detail-approval-section {
+         padding: 0.7rem;
+         margin-top: 0.7rem;
+     }
+
+     .approval-card {
+         padding: 0.7rem;
+     }
+
+     .activity-note {
+         padding: 0.7rem;
+         font-size: 0.75rem;
+         min-height: 60px;
+     }
+ }
+
+ .activity-time-group {
+     display: none;
+ }
+
+ .category-badges {
+     display: flex;
+     gap: 0.75rem;
+     flex-wrap: wrap;
+ }
+
+ .category-badge {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0.5rem 1rem;
+     background-color: #e3f2fd;
+     border: 1px solid rgba(25, 118, 210, 0.1);
+     border-radius: 8px;
+     color: #1976d2;
+     font-weight: 500;
+     font-size: 0.95rem;
+     min-width: 100px;
+     text-align: center;
+ }
+
+ .activity-note {
+     background-color: #f8f9fa;
+     border-radius: 6px;
+     padding: 1rem;
+     color: #495057;
+     font-size: 0.9rem;
+     line-height: 1.5;
+     border: 1px solid rgba(0, 0, 0, 0.05);
+     min-height: 80px;
+ }
+
+ .form-check-input:checked {
+     background-color: var(--button-color);
+     border-color: var(--button-color);
+ }
+
+ .form-check-input:disabled {
+     opacity: 1;
+     pointer-events: none;
+ }
+
+ .form-check-label {
+     color: #495057;
+     font-size: 0.9rem;
+ }
+
+ @media (max-width: 768px) {
+     .activity-time-group {
+         padding: 0.875rem;
+     }
+
+     .category-badges {
+         gap: 0.5rem;
+     }
+
+     .category-badge {
+         font-size: 0.9rem;
+         padding: 0.45rem 0.9rem;
+         min-width: 90px;
+     }
+
+     .activity-note {
+         padding: 0.875rem;
+         font-size: 0.85rem;
+     }
+
+     .form-check-label {
+         font-size: 0.85rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .activity-time-group {
+         padding: 0.75rem;
+     }
+
+     .category-badges {
+         gap: 0.4rem;
+     }
+
+     .category-badge {
+         font-size: 0.85rem;
+         padding: 0.4rem 0.8rem;
+         min-width: 80px;
+     }
+
+     .activity-note {
+         padding: 0.75rem;
+         font-size: 0.8rem;
+         min-height: 70px;
+     }
+
+     .form-check-label {
+         font-size: 0.8rem;
+     }
+ }
+
+ /* Update time information styles */
+ .detail-section .col-6 {
+     padding: 0 0.75rem;
+ }
+
+ @media (max-width: 768px) {
+     .detail-section .col-6 {
+         padding: 0 0.5rem;
+     }
+
+     .detail-info-group {
+         min-height: 50px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .detail-section .col-6 {
+         padding: 0 0.4rem;
+     }
+
+     .detail-info-group {
+         min-height: 50px;
+     }
+
+     .detail-info-group .status-badge {
+         margin-top: 0.25rem;
+     }
+ }
+
+ /* Employee code in detail view */
+ .detail-section .employee-code {
+     font-size: 1rem;
+     font-weight: 500;
+ }
+
+ /* Division badge in detail view */
+ .detail-section .division-badge {
+     font-size: 0.95rem;
+     padding: 0.4rem 0.85rem;
+ }
+
+ @media (max-width: 768px) {
+     .detail-section .employee-code {
+         font-size: 0.95rem;
+     }
+
+     .detail-section .division-badge {
+         font-size: 0.9rem;
+         padding: 0.35rem 0.8rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .detail-section .employee-code {
+         font-size: 0.9rem;
+     }
+
+     .detail-section .division-badge {
+         font-size: 0.85rem;
+         padding: 0.35rem 0.75rem;
+     }
+ }
+
+ /* Category badge in detail view */
+ .detail-section .category-badge {
+     font-size: 0.93rem;
+     padding: 0.4rem 0.95rem;
+     min-width: 102px;
+ }
+
+ @media (max-width: 768px) {
+     .detail-section .category-badge {
+         font-size: 0.82rem;
+         padding: 0.32rem 0.75rem;
+         min-width: 85px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .detail-section .category-badge {
+         font-size: 0.75rem;
+         padding: 0.28rem 0.65rem;
+         min-width: 75px;
+     }
+ }
+
+ /* Check in/out card colors */
+ .detail-status-card.check-in {
+     background-color: #e3f2fd;
+     border: 2px solid #9b92921a;
+     max-width: 180px;
+     margin: 0;
+     position: relative;
+ }
+
+ .detail-status-card.check-in .detail-label {
+     color: #1976d2;
+     opacity: 0.8;
+     font-size: 0.8rem;
+     text-transform: uppercase;
+     letter-spacing: 0.5px;
+     margin-bottom: 0.35rem;
+     padding-bottom: 0.35rem;
+     border-bottom: 1px solid rgba(25, 118, 210, 0.15);
+ }
+
+ .detail-status-card.check-in .detail-value {
+     color: #1976d2;
+     font-size: 1.1rem;
+     font-weight: 600;
+ }
+
+ .detail-status-card.check-out {
+     background-color: #fee2e2;
+     border: 2px solid #9b92921a;
+     max-width: 180px;
+     margin: 0;
+     position: relative;
+ }
+
+ .detail-status-card.check-out .detail-label {
+     color: #b91c1c;
+     opacity: 0.8;
+     font-size: 0.8rem;
+     text-transform: uppercase;
+     letter-spacing: 0.5px;
+     margin-bottom: 0.35rem;
+     padding-bottom: 0.35rem;
+     border-bottom: 1px solid rgba(185, 28, 28, 0.15);
+ }
+
+ .detail-status-card.check-out .detail-value {
+     color: #b91c1c;
+     font-size: 1.1rem;
+     font-weight: 600;
+ }
+
+ @media (max-width: 768px) {
+
+     .detail-status-card.check-in,
+     .detail-status-card.check-out {
+         max-width: 130px;
+         padding: 0.65rem;
+     }
+
+     .detail-status-card.check-in .detail-value,
+     .detail-status-card.check-out .detail-value {
+         font-size: 0.82rem;
+     }
+
+     .detail-status-card.check-in .detail-label,
+     .detail-status-card.check-out .detail-label {
+         font-size: 0.68rem;
+         margin-bottom: 0.25rem;
+         padding-bottom: 0.25rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+
+     .detail-status-card.check-in,
+     .detail-status-card.check-out {
+         max-width: 110px;
+         padding: 0.55rem;
+     }
+
+     .detail-status-card.check-in .detail-value,
+     .detail-status-card.check-out .detail-value {
+         font-size: 0.78rem;
+     }
+
+     .detail-status-card.check-in .detail-label,
+     .detail-status-card.check-out .detail-label {
+         font-size: 0.63rem;
+         margin-bottom: 0.2rem;
+         padding-bottom: 0.2rem;
+     }
+ }
+
+ /* Header title and back button styles */
+ .detail-header {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+ }
+
+ .detail-header h4 {
+     margin: 0;
+     font-size: 1.2rem;
+     font-weight: 600;
+     color: #2c3237;
+ }
+
+ .btn-back {
+     width: 36px;
+     height: 36px;
+     padding: 0;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 6px;
+     background-color: var(--button-color);
+     border: none;
+     color: white;
+     transition: all 0.2s ease;
+ }
+
+ .btn-back i {
+     font-size: 1.1rem;
+ }
+
+ @media (max-width: 768px) {
+     .detail-header h4 {
+         font-size: 1.1rem;
+     }
+
+     .btn-back {
+         width: 32px;
+         height: 32px;
+     }
+
+     .btn-back i {
+         font-size: 1rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .detail-header h4 {
+         font-size: 1rem;
+     }
+
+     .btn-back {
+         width: 28px;
+         height: 28px;
+     }
+
+     .btn-back i {
+         font-size: 0.9rem;
+     }
+ }
+
+ .pagination-wrapper {
+     position: relative;
+     z-index: 1;
+     padding-top: 0.75rem;
+     display: flex;
+     justify-content: flex-end;
+     width: 100%;
+     margin: 0;
+     padding-right: 0.75rem;
+ }
+
+ .pagination {
+     margin: 0;
+     gap: 0.25rem;
+     display: flex;
+     justify-content: flex-end;
+ }
+
+ @media (max-width: 768px) {
+     .pagination-wrapper {
+         padding-right: 0.5rem;
+     }
+
+     .pagination {
+         gap: 0.2rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .pagination-wrapper {
+         padding-top: 0.5rem;
+         padding-right: 0.4rem;
+     }
+
+     .pagination {
+         gap: 0.15rem;
+     }
+ }
+
+ .detail-status-card.check-in,
+ .detail-status-card.check-out {
+     max-width: 180px;
+     margin: 0;
+     position: relative;
+     padding: 0.6rem;
+     height: 70px;
+ }
+
+ .detail-status-card.check-in .detail-label,
+ .detail-status-card.check-out .detail-label {
+     font-size: 0.75rem;
+     text-transform: uppercase;
+     letter-spacing: 0.3px;
+     margin-bottom: 0.2rem;
+     padding-bottom: 0.2rem;
+     line-height: 1;
+     text-align: center;
+ }
+
+ .detail-status-card.check-in .detail-value,
+ .detail-status-card.check-out .detail-value {
+     font-size: 1rem;
+     font-weight: 600;
+     line-height: 1.2;
+     text-align: center;
+ }
+
+ @media (max-width: 768px) {
+
+     .detail-status-card.check-in,
+     .detail-status-card.check-out {
+         padding: 0.5rem;
+         height: 60px;
+     }
+
+     .detail-status-card.check-in .detail-value,
+     .detail-status-card.check-out .detail-value {
+         font-size: 0.82rem;
+     }
+
+     .detail-status-card.check-in .detail-label,
+     .detail-status-card.check-out .detail-label {
+         font-size: 0.65rem;
+         margin-bottom: 0.15rem;
+         padding-bottom: 0.15rem;
+         letter-spacing: 0.2px;
+     }
+ }
+
+ @media (max-width: 576px) {
+
+     .detail-status-card.check-in,
+     .detail-status-card.check-out {
+         padding: 0.4rem;
+         height: 55px;
+     }
+
+     .detail-status-card.check-in .detail-value,
+     .detail-status-card.check-out .detail-value {
+         font-size: 0.78rem;
+     }
+
+     .detail-status-card.check-in .detail-label,
+     .detail-status-card.check-out .detail-label {
+         font-size: 0.6rem;
+         margin-bottom: 0.1rem;
+         padding-bottom: 0.1rem;
+         letter-spacing: 0;
+     }
+ }
+
+ /* Add these styles for the time activity cards container */
+ .time-activity-cards {
+     position: relative;
+     display: flex;
+     gap: 1rem;
+ }
+
+ .time-activity-cards>div {
+     flex: 1;
+ }
+
+ .detail-status-card.check-in,
+ .detail-status-card.check-out {
+     width: 100%;
+     margin: 0;
+     position: relative;
+     padding: 0.8rem;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+
+ .detail-status-card.check-in .detail-label,
+ .detail-status-card.check-out .detail-label {
+     font-size: 0.75rem;
+     text-transform: uppercase;
+     letter-spacing: 0.3px;
+     margin-bottom: 0.3rem;
+     padding-bottom: 0.3rem;
+     line-height: 1;
+     text-align: center;
+ }
+
+ .detail-status-card.check-in .detail-value,
+ .detail-status-card.check-out .detail-value {
+     font-size: 1rem;
+     font-weight: 600;
+     line-height: 1.2;
+     text-align: center;
+ }
+
+ @media (max-width: 768px) {
+     .time-activity-cards {
+         gap: 0.5rem;
+     }
+
+     .detail-status-card.check-in,
+     .detail-status-card.check-out {
+         padding: 0.6rem;
+         height: 65px;
+     }
+
+     .detail-status-card.check-in .detail-value,
+     .detail-status-card.check-out .detail-value {
+         font-size: 0.82rem;
+     }
+
+     .detail-status-card.check-in .detail-label,
+     .detail-status-card.check-out .detail-label {
+         font-size: 0.65rem;
+         margin-bottom: 0.25rem;
+         padding-bottom: 0.25rem;
+         letter-spacing: 0.2px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .time-activity-cards {
+         gap: 0.35rem;
+     }
+
+     .time-activity-cards>div {
+         width: 50% !important;
+     }
+
+     .detail-status-card.check-in,
+     .detail-status-card.check-out {
+         padding: 0.5rem 0.35rem;
+         height: 60px;
+     }
+
+     .detail-status-card.check-in .detail-value,
+     .detail-status-card.check-out .detail-value {
+         font-size: 0.75rem;
+     }
+
+     .detail-status-card.check-in .detail-label,
+     .detail-status-card.check-out .detail-label {
+         font-size: 0.6rem;
+         margin-bottom: 0.2rem;
+         padding-bottom: 0.2rem;
+         letter-spacing: 0;
+     }
+ }
+
+ /* Adjust the check-in/out cards container */
+ .detail-status-card.check-in,
+ .detail-status-card.check-out {
+     position: relative;
+     z-index: 1;
+ }
+
+ /* Form Input Styles */
+ .form-control {
+     border: 1px solid rgba(0, 0, 0, 0.1);
+     border-radius: 6px;
+     padding: 0.5rem 0.75rem;
+     font-size: 0.9rem;
+     color: #495057;
+     background-color: #fff;
+     transition: all 0.2s ease;
+ }
+
+ .form-control:focus {
+     border-color: var(--button-color);
+     box-shadow: 0 0 0 0.2rem rgba(182, 88, 196, 0.15);
+ }
+
+ .form-control::placeholder {
+     color: #6c757d;
+     opacity: 0.7;
+ }
+
+ .time-input {
+     background-color: transparent;
+     border: 1px solid rgba(0, 0, 0, 0.1);
+     color: inherit;
+     text-align: center;
+     font-weight: 600;
+     padding: 0.35rem;
+ }
+
+ .detail-status-card.check-in .time-input {
+     color: #1976d2;
+ }
+
+ .detail-status-card.check-out .time-input {
+     color: #b91c1c;
+ }
+
+ .time-input:focus {
+     background-color: rgba(255, 255, 255, 0.1);
+ }
+
+ textarea.activity-note {
+     min-height: 100px;
+     resize: vertical;
+ }
+
+ .form-check-input {
+     width: 1.1rem;
+     height: 1.1rem;
+     margin-top: 0.2rem;
+     border: 1px solid rgba(0, 0, 0, 0.15);
+     cursor: pointer;
+ }
+
+ .form-check-label {
+     padding-bottom: 0.2rem;
+     cursor: pointer;
+ }
+
+ /* Mobile Responsive Styles for Form */
+ @media (max-width: 768px) {
+     .form-control {
+         font-size: 0.85rem;
+         padding: 0.4rem 0.65rem;
+     }
+
+     .time-input {
+         padding: 0.3rem;
+         font-size: 0.85rem;
+     }
+
+     textarea.activity-note {
+         min-height: 80px;
+     }
+
+     .form-check-input {
+         width: 1rem;
+         height: 1rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .form-control {
+         font-size: 0.8rem;
+         padding: 0.35rem 0.6rem;
+     }
+
+     .time-input {
+         padding: 0.25rem;
+         font-size: 0.8rem;
+     }
+
+     textarea.activity-note {
+         min-height: 70px;
+     }
+
+     .form-check-input {
+         width: 0.9rem;
+         height: 0.9rem;
+     }
+ }
+
+ /* Submit Button Styles */
+ .btn-submit {
+     background-color: var(--button-color);
+     color: white;
+     border: none;
+     padding: 0.6rem 1.2rem;
+     font-size: 0.9rem;
+     border-radius: 8px;
+     transition: all 0.2s ease;
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+ }
+
+ .btn-submit:hover {
+     background-color: var(--button-hover-color);
+     transform: translateY(-1px);
+ }
+
+ .btn-submit:active {
+     background-color: var(--button-active-color);
+     transform: translateY(0);
+ }
+
+ .btn-submit i {
+     font-size: 1rem;
+ }
+
+ @media (max-width: 768px) {
+     .btn-submit {
+         padding: 0.5rem 1rem;
+         font-size: 0.85rem;
+     }
+
+     .btn-submit i {
+         font-size: 0.9rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .btn-submit {
+         padding: 0.45rem 0.9rem;
+         font-size: 0.8rem;
+     }
+
+     .btn-submit i {
+         font-size: 0.85rem;
+     }
+ }
+
+ /* Form Select Styles */
+ .form-select {
+     border: 1px solid rgba(0, 0, 0, 0.1);
+     border-radius: 6px;
+     padding: 0.5rem 0.75rem;
+     font-size: 0.9rem;
+     color: #495057;
+     background-color: #fff;
+     transition: all 0.2s ease;
+     cursor: pointer;
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23495057' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+     background-repeat: no-repeat;
+     background-position: right 0.75rem center;
+     background-size: 16px 12px;
+     padding-right: 2.5rem;
+ }
+
+ .form-select:focus {
+     border-color: var(--button-color);
+     box-shadow: 0 0 0 0.2rem rgba(182, 88, 196, 0.15);
+ }
+
+ .form-select:hover {
+     border-color: var(--button-color);
+ }
+
+ .form-select option {
+     padding: 0.5rem;
+ }
+
+ .form-select option:hover {
+     background-color: rgba(182, 88, 196, 0.1);
+ }
+
+ .form-select:disabled,
+ .form-select[readonly] {
+     background-color: #e9ecef;
+     opacity: 1;
+ }
+
+ /* Mobile Responsive Styles for Select */
+ @media (max-width: 768px) {
+     .form-select {
+         font-size: 0.85rem;
+         padding: 0.4rem 0.65rem;
+         padding-right: 2.25rem;
+         background-size: 14px 10px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .form-select {
+         font-size: 0.8rem;
+         padding: 0.35rem 0.6rem;
+         padding-right: 2rem;
+         background-size: 12px 9px;
+     }
+ }
+
+ /* Category Dropdown Styles */
+ .detail-info-group .d-flex.gap-2 {
+     display: flex;
+     gap: 0.75rem !important;
+ }
+
+ .detail-info-group .d-flex.gap-2 .form-select {
+     flex: 1;
+     min-width: 0;
+ }
+
+ /* Ensure dropdowns don't overflow on mobile */
+ @media (max-width: 768px) {
+     .detail-info-group .d-flex.gap-2 {
+         gap: 0.5rem !important;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .detail-info-group .d-flex.gap-2 {
+         gap: 0.35rem !important;
+     }
+ }

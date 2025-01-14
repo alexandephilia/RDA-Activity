@@ -1,14 +1,15 @@
+# Project specific
+BM-L/
+
 # Dependencies
 node_modules/
-package-lock.json
-yarn.lock
+vendor/
 
-# IDE/Editor
+# IDE and Editor files
 .vscode/
 .idea/
-*.sublime-*
-*.swp
-*.swo
+*.sublime-project
+*.sublime-workspace
 
 # OS generated files
 .DS_Store
@@ -19,12 +20,17 @@ yarn.lock
 ehthumbs.db
 Thumbs.db
 
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
 # Environment files
 .env
 .env.local
 .env.*.local
 
-# Build/Deploy
+# Build output
 dist/
 build/
-*.log 
+out/ 

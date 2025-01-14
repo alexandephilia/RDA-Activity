@@ -1,15 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Realta Daily Activity</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Local CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="detail.css">
     <style>
+        /* Font Faces */
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNovaT-Thin.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNovaT-Thin.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNovaT-Thin.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNovaT-Thin.eot');
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-ThinIt.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-ThinIt.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-ThinIt.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-ThinIt.eot');
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-Light.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-Light.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-Light.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-Light.eot');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-LightIt.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-LightIt.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-LightIt.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-LightIt.eot');
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-Regular.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-Regular.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-Regular.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-Regular.eot');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-RegularIt.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-RegularIt.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-RegularIt.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-RegularIt.eot');
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-Semibold.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-Semibold.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-Semibold.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-Semibold.eot');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-SemiboldIt.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-SemiboldIt.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-SemiboldIt.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-SemiboldIt.eot');
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-Bold.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-Bold.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-Bold.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-Bold.eot');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-BoldIt.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-BoldIt.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-BoldIt.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-BoldIt.eot');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-Extrabld.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-Extrabld.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-Extrabld.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-Extrabld.eot');
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-ExtrabldIt.eot');
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-Black.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-Black.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-Black.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-Black.eot');
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../fonts/proxima-nova/ProximaNova-BlackIt.woff2') format('woff2'),
+                url('../fonts/proxima-nova/ProximaNova-BlackIt.woff') format('woff'),
+                url('../fonts/proxima-nova/ProximaNova-BlackIt.ttf') format('truetype'),
+                url('../fonts/proxima-nova/ProximaNova-BlackIt.eot');
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        /* Bootstrap Icons Font */
+        @font-face {
+            font-family: "bootstrap-icons";
+            src: url("fonts/bootstrap-icons.woff2") format("woff2"),
+                url("fonts/bootstrap-icons.woff") format("woff");
+        }
+
         :root {
             --card-padding: clamp(0.8rem, 2vw, 1rem);
             --card-min-height: 180px;
@@ -35,14 +183,17 @@
         }
 
         body {
+            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             background-color: #f8f9fa;
             min-height: 100vh;
         }
-        
+
         .dashboard-wrapper {
             position: relative;
             padding: 1.5rem;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.8) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
             border-radius: 16px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -63,12 +214,11 @@
             transform: translateX(-50%);
             width: 2px;
             height: 100%;
-            background: linear-gradient(to bottom, 
-                rgba(222,226,230,0) 0%, 
-                rgba(222,226,230,0.5) 10%,
-                rgba(222,226,230,0.5) 90%,
-                rgba(222,226,230,0) 100%
-            );
+            background: linear-gradient(to bottom,
+                    rgba(222, 226, 230, 0) 0%,
+                    rgba(222, 226, 230, 0.5) 10%,
+                    rgba(222, 226, 230, 0.5) 90%,
+                    rgba(222, 226, 230, 0) 100%);
             z-index: 0;
         }
 
@@ -302,7 +452,7 @@
             min-height: calc(var(--title-size) * 2.4);
             justify-content: center;
         }
-        
+
         .time-info.text-end {
             align-items: flex-end;
         }
@@ -314,7 +464,8 @@
             align-items: flex-start;
         }
 
-        .time-label, .time-value {
+        .time-label,
+        .time-value {
             width: 100%;
             display: inline-block;
         }
@@ -342,7 +493,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
         }
 
         .card-divider {
@@ -371,7 +522,8 @@
             font-weight: 500;
         }
 
-        .division-badge, .category-badge {
+        .division-badge,
+        .category-badge {
             font-size: var(--badge-size);
             padding: 0.1rem 0.2rem;
             background-color: #f6f6f746;
@@ -564,7 +716,7 @@
                 font-size: 0.85rem;
                 padding: 0 0.8rem;
             }
-            
+
             .btn-new-activity i {
                 font-size: 1rem;
             }
@@ -605,11 +757,10 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(to right, 
-                rgba(222,226,230,0) 0%, 
-                rgba(222,226,230,0.8) 50%,
-                rgba(222,226,230,0) 100%
-            );
+            background: linear-gradient(to right,
+                    rgba(222, 226, 230, 0) 0%,
+                    rgba(222, 226, 230, 0.8) 50%,
+                    rgba(222, 226, 230, 0) 100%);
         }
 
         .pagination-wrapper {
@@ -627,11 +778,10 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(to right, 
-                rgba(222,226,230,0) 0%, 
-                rgba(222,226,230,0.8) 50%,
-                rgba(222,226,230,0) 100%
-            );
+            background: linear-gradient(to right,
+                    rgba(222, 226, 230, 0) 0%,
+                    rgba(222, 226, 230, 0.8) 50%,
+                    rgba(222, 226, 230, 0) 100%);
         }
 
         .pagination {
@@ -700,18 +850,18 @@
             color: #6c757d;
             display: block;
         }
-        
+
         .time-value {
             font-size: var(--name-size);
             color: #495057;
             font-weight: 500;
         }
-        
+
         .project-info {
             text-align: right;
             max-width: 60%;
         }
-        
+
         .project-name {
             font-size: var(--name-size);
             color: #495057;
@@ -720,7 +870,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .project-desc {
             font-size: var(--badge-size);
             color: #6c757d;
@@ -745,7 +895,7 @@
             min-width: 100px;
         }
 
-      
+
         .activity-notes {
             margin-top: 1rem;
             padding: 0.5rem;
@@ -783,7 +933,7 @@
             gap: 1rem;
             position: relative;
         }
-        
+
         .activity-meta-item {
             flex: 1;
             display: flex;
@@ -808,19 +958,17 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(to right, 
-                rgba(222,226,230,0) 0%, 
-                rgba(222,226,230,1) 50%,
-                rgba(222,226,230,0) 100%
-            );
+            background: linear-gradient(to right,
+                    rgba(222, 226, 230, 0) 0%,
+                    rgba(222, 226, 230, 1) 50%,
+                    rgba(222, 226, 230, 0) 100%);
         }
 
         .activity-meta-item:last-child .activity-status::after {
-            background: linear-gradient(to right, 
-                rgba(222,226,230,0) 0%, 
-                rgba(222,226,230,1) 50%,
-                rgba(222,226,230,0) 100%
-            );
+            background: linear-gradient(to right,
+                    rgba(222, 226, 230, 0) 0%,
+                    rgba(222, 226, 230, 1) 50%,
+                    rgba(222, 226, 230, 0) 100%);
         }
 
         .activity-value {
@@ -829,13 +977,13 @@
             font-weight: 500;
             margin-top: 0.35rem;
         }
-        
+
         @media (max-width: 576px) {
             .activity-meta {
                 gap: 0.5rem;
                 flex-direction: row;
             }
-            
+
             .activity-meta .activity-status,
             .activity-meta .activity-value {
                 font-size: 0.65rem;
@@ -869,7 +1017,7 @@
             flex-direction: column;
             gap: 0.25rem;
             padding-top: 0.5rem;
-            border-top: 1px solid rgba(222,226,230,0.5);
+            border-top: 1px solid rgba(222, 226, 230, 0.5);
             align-items: flex-end;
             text-align: right;
         }
@@ -917,7 +1065,8 @@
         }
 
         .approval-pending::before {
-            content: "\F291"; /* Bootstrap icon for clock */
+            content: "\F291";
+            /* Bootstrap icon for clock */
         }
 
         .approval-approved {
@@ -927,7 +1076,8 @@
         }
 
         .approval-approved::before {
-            content: "\F26A"; /* Bootstrap icon for check */
+            content: "\F26A";
+            /* Bootstrap icon for check */
         }
 
         .approval-rejected {
@@ -937,7 +1087,8 @@
         }
 
         .approval-rejected::before {
-            content: "\F623"; /* Bootstrap icon for x */
+            content: "\F623";
+            /* Bootstrap icon for x */
         }
 
         .approval-meta {
@@ -980,7 +1131,7 @@
             color: #6c757d;
         }
 
-        .btn-dark, 
+        .btn-dark,
         .btn-refresh {
             background-color: #da8bff96 !important;
             color: #652285a1 !important;
@@ -988,7 +1139,7 @@
             box-shadow: 0 4px 6px rgba(172, 165, 172, 0.295) !important;
         }
 
-        .btn-dark:hover, 
+        .btn-dark:hover,
         .btn-refresh:hover {
             background-color: #b571d4b4 !important;
             border-color: #dbb9eb0a !important;
@@ -996,11 +1147,11 @@
             box-shadow: 0 4px 6px rgba(214, 187, 218, 0.349) !important;
         }
 
-        .btn-dark:active, 
+        .btn-dark:active,
         .btn-refresh:active {
             background-color: #da8bff4b !important;
             border-color: #dbb9eb0a !important;
-        
+
         }
 
         .btn-dark:disabled,
@@ -1029,17 +1180,17 @@
             0% {
                 background-position: -1000px 0;
             }
+
             100% {
                 background-position: 1000px 0;
             }
         }
 
         .skeleton {
-            background: linear-gradient(90deg, 
-                #f0f0f0 0%, 
-                #f8f8f8 50%, 
-                #f0f0f0 100%
-            );
+            background: linear-gradient(90deg,
+                    #f0f0f0 0%,
+                    #f8f8f8 50%,
+                    #f0f0f0 100%);
             background-size: 1000px 100%;
             animation: shimmer 2s infinite linear;
         }
@@ -1058,11 +1209,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 255, 255, 0.6) 50%, 
-                transparent 100%
-            );
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.6) 50%,
+                    transparent 100%);
             background-size: 1000px 100%;
             animation: shimmer 2s infinite linear;
         }
@@ -1275,7 +1425,7 @@
                 --bs-gutter-x: 0.75rem;
                 margin: 0;
             }
-            
+
             .profile-container {
                 padding: 0.6rem 0.8rem;
                 min-height: unset;
@@ -1390,7 +1540,7 @@
         @media (max-width: 576px) {
             .btn-new-activity {
                 min-width: 105px;
-                padding: 1.2rem 0.3rem  
+                padding: 1.2rem 0.3rem
             }
 
             .btn-refresh {
@@ -1426,7 +1576,7 @@
             cursor: pointer;
             padding: 0.75rem 1rem;
             margin-bottom: 0 !important;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             width: 100%;
             border-radius: 8px;
             transition: all 0.2s ease-in-out;
@@ -1436,7 +1586,7 @@
 
         .section-header:hover {
             background: linear-gradient(to right, #da8bff0d, #f8f9fa);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .section-header::after {
@@ -1548,7 +1698,7 @@
 
         /* Keep border for regular section titles */
         .detail-section .section-title {
-            border-bottom: 1px solid rgba(222,226,230,0.8);
+            border-bottom: 1px solid rgba(222, 226, 230, 0.8);
             padding-bottom: 0.75rem;
             margin-bottom: 1.5rem;
         }
@@ -1666,7 +1816,7 @@
                 font-size: 0.85rem;
                 padding: 0.4rem 0.8rem;
             }
-            
+
             .favorite-searches .dropdown-item {
                 font-size: 0.85rem;
                 padding: 0.4rem 0.8rem;
@@ -1678,15 +1828,69 @@
                 font-size: 0.8rem;
                 padding: 0.35rem 0.7rem;
             }
-            
+
             .favorite-searches .dropdown-item {
                 font-size: 0.8rem;
                 padding: 0.35rem 0.7rem;
             }
         }
 
+        .btn-reject {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            background-color: #ff6b6b96 !important;
+            color: #842029a1 !important;
+            border: 3px solid #ff6b6b0c !important;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(255, 107, 107, 0.349) !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .btn-reject:hover {
+            background-color: #ff6b6bb4 !important;
+            border-color: #ff6b6b0c !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(255, 107, 107, 0.4) !important;
+        }
+
+        .btn-reject:active {
+            background-color: #ff6b6b4b !important;
+            border-color: #ff6b6b0c !important;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3) !important;
+        }
+
+        @media (max-width: 576px) {
+            .btn-new-activity {
+                min-width: 105px;
+                padding: 1.2rem 0.3rem
+            }
+
+            .btn-reject {
+                min-width: 105px;
+                padding: 1.2rem 0.3rem;
+                font-size: 0.8rem;
+            }
+
+            .btn-refresh {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            .search-input {
+                padding-left: 2.4rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="container py-4">
         <div class="dashboard-wrapper">
@@ -1724,7 +1928,8 @@
                     <!-- Favorite Searches Dropdown -->
                     <div class="favorite-searches">
                         <div class="dropdown">
-                            <button class="btn btn-favorite dropdown-toggle text-start" type="button" id="favoriteSearchesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-favorite dropdown-toggle text-start" type="button"
+                                id="favoriteSearchesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-star me-2"></i>All
                             </button>
                             <ul class="dropdown-menu w-100" aria-labelledby="favoriteSearchesDropdown">
@@ -1736,7 +1941,8 @@
                                 <li><a class="dropdown-item" href="#">User - My RDA Today</a></li>
                                 <li><a class="dropdown-item" href="#">User - My Rejected RDA</a></li>
                                 <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA</a></li>
-                                <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA Today</a></li>
+                                <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA
+                                        Today</a></li>
                                 <li><a class="dropdown-item" href="#">User Approver - My Team's RDA</a></li>
                                 <li><a class="dropdown-item" href="#">User Approver - My Team's RDA Today</a></li>
                             </ul>
@@ -1747,7 +1953,8 @@
                             <div class="input-group">
                                 <input type="text" class="form-control search-input" placeholder="Search RDA...">
                                 <button class="btn btn-refresh">
-                                    <i class="bi bi-arrow-clockwise"></i><span class="d-none d-md-inline ms-2">Refresh</span>
+                                    <i class="bi bi-arrow-clockwise"></i><span
+                                        class="d-none d-md-inline ms-2">Refresh</span>
                                 </button>
                             </div>
                         </div>
@@ -1778,8 +1985,9 @@
     </div>
 
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="js/app.js"></script>
 </body>
+
 </html>

@@ -317,8 +317,8 @@ cardData.forEach(card => {
             name: card.title
         },
         category: {
-            main: "Enhancement",  // Default main category
-            type: "New Feature"   // Default type from our mapping
+            main: "Enhancement", // Default main category
+            type: "New Feature" // Default type from our mapping
         },
         softwareDev: true,
         note: "Implementing new features for customer portal including authentication improvements and dashboard optimization.",
@@ -374,25 +374,50 @@ const categoryMapping = {
     ]
 };
 
-// Function to filter data based on search query
+// Function to filter data based on search query and view selection
 function filterData(query) {
-    if (!query) {
+    if (!query && currentViewSelection === 'All') {
         filteredData = [...cardData];
         return;
     }
-    
-    query = query.toLowerCase().trim();
-    filteredData = cardData.filter(card => {
-        return (
-            card.title.toLowerCase().includes(query) ||
-            card.employee.name.toLowerCase().includes(query) ||
-            card.employee.code.toLowerCase().includes(query) ||
-            card.division.toLowerCase().includes(query) ||
-            (card.activityStatus && card.activityStatus.toLowerCase().includes(query)) ||
-            (card.checkIn && card.checkIn.toLowerCase().includes(query)) ||
-            (card.checkOut && card.checkOut.toLowerCase().includes(query))
-        );
-    });
+
+    query = query ? query.toLowerCase().trim() : '';
+
+    // First filter by view selection
+    let viewFiltered = [...cardData];
+    if (currentViewSelection !== 'All') {
+        // Add view-specific filtering logic here
+        switch (currentViewSelection) {
+            case 'User - My Approved RDA':
+                viewFiltered = cardData.filter(card => card.approval.status === 'approved');
+                break;
+            case 'User - My Outstanding RDA':
+                viewFiltered = cardData.filter(card => !card.approval.status);
+                break;
+            case 'User - My Outstanding RDA Today':
+                const today = new Date().toLocaleDateString();
+                viewFiltered = cardData.filter(card => !card.approval.status && card.checkIn.includes(today));
+                break;
+                // Add other cases as needed
+        }
+    }
+
+    // Then filter by search query if exists
+    if (query) {
+        filteredData = viewFiltered.filter(card => {
+            return (
+                card.title.toLowerCase().includes(query) ||
+                card.employee.name.toLowerCase().includes(query) ||
+                card.employee.code.toLowerCase().includes(query) ||
+                card.division.toLowerCase().includes(query) ||
+                (card.activityStatus && card.activityStatus.toLowerCase().includes(query)) ||
+                (card.checkIn && card.checkIn.toLowerCase().includes(query)) ||
+                (card.checkOut && card.checkOut.toLowerCase().includes(query))
+            );
+        });
+    } else {
+        filteredData = viewFiltered;
+    }
 }
 
 // Function to perform search
@@ -457,30 +482,42 @@ function showSkeletonLoading() {
 function refreshData() {
     const searchInput = document.querySelector('.search-input');
     const refreshButton = document.querySelector('.btn-refresh');
-    
+
     // Clear search input
     searchInput.value = '';
-    
+
+    // Reset view selection to All
+    currentViewSelection = 'All';
+
+    // Update dropdown button text
+    const dropdownButton = document.querySelector('#favoriteSearchesDropdown');
+    dropdownButton.innerHTML = `<i class="bi bi-star me-2"></i>All`;
+
+    // Update dropdown item active states
+    document.querySelectorAll('.favorite-searches .dropdown-item').forEach(item => {
+        item.classList.toggle('active', item.textContent.trim() === 'All');
+    });
+
     // Show skeleton loading
     showSkeletonLoading();
-    
+
     // Add rotation animation to refresh button
     const icon = refreshButton.querySelector('i');
     icon.style.transition = 'transform 0.5s ease';
     icon.style.transform = 'rotate(360deg)';
-    
+
     // Simulate loading delay and then reset data
     setTimeout(() => {
         // Reset to original data
         filteredData = [...cardData];
         currentPage = 1;
-        
+
         // Render cards
         renderCards();
-        
+
         // Reset refresh button
         icon.style.transform = '';
-    }, 1000); // Show skeleton for 1 second
+    }, 1000);
 }
 
 // Function to generate a single card HTML
@@ -550,14 +587,14 @@ function generateCardHTML(data) {
             </div>
         </div>
     `;
-    
+
     return cardHtml;
 }
 
 // Function to render cards for current page
 function renderCards() {
     const container = document.getElementById('cardsContainer');
-    
+
     // Check if there are no results
     if (filteredData.length === 0) {
         container.innerHTML = `
@@ -578,14 +615,14 @@ function renderCards() {
 
     // Show pagination when there are results
     document.querySelector('.pagination-wrapper').style.display = 'block';
-    
+
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const currentCards = filteredData.slice(startIndex, endIndex);
-    
+
     container.innerHTML = currentCards.map(card => generateCardHTML(card)).join('');
     updatePagination();
-    
+
     // Add click handlers to cards
     addCardClickHandlers();
 }
@@ -594,12 +631,12 @@ function renderCards() {
 function updatePagination() {
     const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
     const paginationContainer = document.querySelector('.pagination');
-    
+
     // Reset current page if it exceeds total pages
     if (currentPage > totalPages) {
         currentPage = totalPages || 1;
     }
-    
+
     // Previous button
     let paginationHTML = `
         <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
@@ -628,21 +665,24 @@ function updatePagination() {
     `;
 
     paginationContainer.innerHTML = paginationHTML;
-    
+
     // Add click event listeners to pagination items
     document.querySelectorAll('.page-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             // Get the clicked element or its closest page-link parent
             const pageLink = e.target.closest('.page-link');
             if (!pageLink) return;
-            
+
             const newPage = parseInt(pageLink.dataset.page);
             if (!isNaN(newPage) && newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
                 currentPage = newPage;
                 // Ensure scroll happens before rendering
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
                 setTimeout(() => {
                     renderCards();
                 }, 100); // Small delay to ensure smooth scroll starts first
@@ -651,17 +691,17 @@ function updatePagination() {
     });
 }
 
-// Add state variable for current view selection
-let currentViewSelection = 'FAVORITE SEARCHES';
-
 // Function to show list view
 function showListView() {
     // Scroll to top when showing list view
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
     currentView = 'list';
     selectedCard = null;
-    
+
     // Restore default search section with original structure
     const searchSection = document.querySelector('.search-section');
     searchSection.innerHTML = `
@@ -670,19 +710,20 @@ function showListView() {
             <div class="favorite-searches">
                 <div class="dropdown">
                     <button class="btn btn-favorite dropdown-toggle text-start" type="button" id="favoriteSearchesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-star me-2"></i>All
+                        <i class="bi bi-star me-2"></i>${currentViewSelection}
                     </button>
                     <ul class="dropdown-menu w-100" aria-labelledby="favoriteSearchesDropdown">
-                        <li><a class="dropdown-item" href="#">User - My Approved RDA</a></li>
-                        <li><a class="dropdown-item" href="#">User - My Outstanding RDA</a></li>
-                        <li><a class="dropdown-item" href="#">User - My Outstanding RDA Today</a></li>
-                        <li><a class="dropdown-item" href="#">User - My RDA</a></li>
-                        <li><a class="dropdown-item" href="#">User - My RDA Today</a></li>
-                        <li><a class="dropdown-item" href="#">User - My Rejected RDA</a></li>
-                        <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA</a></li>
-                        <li><a class="dropdown-item" href="#">User Approver - My Team's Outstanding RDA Today</a></li>
-                        <li><a class="dropdown-item" href="#">User Approver - My Team's RDA</a></li>
-                        <li><a class="dropdown-item" href="#">User Approver - My Team's RDA Today</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === 'All' ? 'active' : ''}" href="#">All</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === 'User - My Approved RDA' ? 'active' : ''}" href="#">User - My Approved RDA</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === 'User - My Outstanding RDA' ? 'active' : ''}" href="#">User - My Outstanding RDA</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === 'User - My Outstanding RDA Today' ? 'active' : ''}" href="#">User - My Outstanding RDA Today</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === 'User - My RDA' ? 'active' : ''}" href="#">User - My RDA</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === 'User - My RDA Today' ? 'active' : ''}" href="#">User - My RDA Today</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === 'User - My Rejected RDA' ? 'active' : ''}" href="#">User - My Rejected RDA</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === "User Approver - My Team's Outstanding RDA" ? 'active' : ''}" href="#">User Approver - My Team's Outstanding RDA</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === "User Approver - My Team's Outstanding RDA Today" ? 'active' : ''}" href="#">User Approver - My Team's Outstanding RDA Today</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === "User Approver - My Team's RDA" ? 'active' : ''}" href="#">User Approver - My Team's RDA</a></li>
+                        <li><a class="dropdown-item ${currentViewSelection === "User Approver - My Team's RDA Today" ? 'active' : ''}" href="#">User Approver - My Team's RDA Today</a></li>
                     </ul>
                 </div>
             </div>
@@ -706,27 +747,28 @@ function showListView() {
 
     // Re-initialize event listeners
     initializeEventListeners();
-    
+
     // Add click handler for new activity button
     document.querySelector('.btn-new-activity').addEventListener('click', (e) => {
         e.preventDefault();
         showNewActivityForm();
     });
-    
+
     // Show pagination
     document.querySelector('.pagination-wrapper').style.display = 'block';
-    
-    // Render cards
+
+    // Refilter data based on current selection and render
+    filterData(document.querySelector('.search-input').value);
     renderCards();
 }
 
 // Function to show new activity form
 function showNewActivityForm() {
     currentView = 'new';
-    
+
     // Get user data from the first card (our source of truth)
     const userData = cardData[0].employee;
-    
+
     // Get current date and time
     const now = new Date();
     const formattedDateTime = now.toLocaleString('en-US', {
@@ -737,7 +779,7 @@ function showNewActivityForm() {
         minute: '2-digit',
         hour12: true
     });
-    
+
     // Update header section with back button
     const searchSection = document.querySelector('.search-section');
     searchSection.innerHTML = `
@@ -777,18 +819,18 @@ function generateNewActivityFormHTML(userData, formattedDateTime) {
         'Financial Dashboard',
         'Security Audit System'
     ];
-    
+
     // Generate dropdown options HTML
-    const sproBestOptionsHTML = projectSproBestOptions.map(option => 
+    const sproBestOptionsHTML = projectSproBestOptions.map(option =>
         `<option value="${option}" ${option === userData.division ? 'selected' : ''}>${option}</option>`
     ).join('');
-    
-    const projectNameOptionsHTML = projectNameOptions.map(option => 
+
+    const projectNameOptionsHTML = projectNameOptions.map(option =>
         `<option value="${option}">${option}</option>`
     ).join('');
 
     // Generate category options HTML
-    const categoryOptionsHTML = Object.keys(categoryMapping).map(category => 
+    const categoryOptionsHTML = Object.keys(categoryMapping).map(category =>
         `<option value="${category}">${category}</option>`
     ).join('');
 
@@ -1044,7 +1086,7 @@ function showDetailView(cardData) {
     // First update the view state
     selectedCard = cardData;
     currentView = 'detail';
-    
+
     // Update header section
     const searchSection = document.querySelector('.search-section');
     searchSection.innerHTML = `
@@ -1065,14 +1107,14 @@ function showDetailView(cardData) {
 
     // Hide pagination
     document.querySelector('.pagination-wrapper').style.display = 'none';
-    
+
     // Use requestAnimationFrame to ensure scroll happens after DOM update
     requestAnimationFrame(() => {
         // Force a reflow to ensure the new content is rendered
         document.body.offsetHeight;
         // Scroll to top with smooth behavior
-        window.scrollTo({ 
-            top: 0, 
+        window.scrollTo({
+            top: 0,
             behavior: 'smooth',
             block: 'start',
             inline: 'nearest'
@@ -1118,8 +1160,11 @@ function generateDetailViewHTML(data) {
                     </div>
                 </div>
             </div>
-            ${data.activityStatus !== 'completed' ? `
+            ${!data.approval.status ? `
                 <div class="text-end mt-3">
+                    <button class="btn btn-reject me-2" onclick="handleReject(${cardData.indexOf(data)})">
+                        <i class="bi bi-x-circle"></i> Reject
+                    </button>
                     <button class="btn btn-new-activity" onclick="handleApprove(${cardData.indexOf(data)})">
                         <i class="bi bi-check-circle"></i> Approve
                     </button>
@@ -1348,30 +1393,45 @@ function initializeEventListeners() {
     // Search input handling
     const searchInput = document.querySelector('.search-input');
     let searchTimeout;
-    
+
     searchInput.addEventListener('input', (e) => {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(performSearch, 300);
     });
-    
+
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
             performSearch();
         }
     });
-    
+
     // Add dropdown label update functionality
     document.querySelectorAll('.favorite-searches .dropdown-item').forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
-            const selectedText = e.target.textContent;
-            currentViewSelection = selectedText; // Update the state
+            const selectedText = e.target.textContent.trim();
+
+            // Remove active class from all items
+            document.querySelectorAll('.favorite-searches .dropdown-item').forEach(i => {
+                i.classList.remove('active');
+            });
+
+            // Add active class to selected item
+            e.target.classList.add('active');
+
+            // Update state and UI
+            currentViewSelection = selectedText;
             const dropdownButton = document.querySelector('#favoriteSearchesDropdown');
             dropdownButton.innerHTML = `<i class="bi bi-star me-2"></i>${selectedText}`;
+
+            // Refilter data based on new selection
+            currentPage = 1; // Reset to first page
+            filterData(searchInput.value);
+            renderCards();
         });
     });
-    
+
     // Refresh button handler
     const refreshButton = document.querySelector('.btn-refresh');
     refreshButton.addEventListener('click', refreshData);
@@ -1397,7 +1457,7 @@ function getLoggedInUserName() {
 // Function to handle form submission
 function handleNewActivitySubmit(e) {
     e.preventDefault();
-    
+
     // Get current date and time for timestamps
     const now = new Date();
     const timestamp = now.toLocaleString('en-US', {
@@ -1410,7 +1470,7 @@ function handleNewActivitySubmit(e) {
     });
 
     // Format current time for check-in (HH:mm format)
-    const currentTime = now.toLocaleTimeString('en-US', { 
+    const currentTime = now.toLocaleTimeString('en-US', {
         hour12: false,
         hour: '2-digit',
         minute: '2-digit'
@@ -1504,20 +1564,60 @@ function handleApprove(cardIndex) {
     cardData[cardIndex].activityStatus = 'completed';
 
     // Update filtered data to match cardData
-    filteredData = cardData.map(card => ({...card}));
+    filteredData = cardData.map(card => ({
+        ...card
+    }));
 
     // Show success message
     alert('Activity approved successfully!');
 
     // First update the list view data
     renderCards();
-    
+
+    // Then show the updated detail view
+    showDetailView(cardData[cardIndex]);
+}
+
+// Function to handle reject action
+function handleReject(cardIndex) {
+    const now = new Date();
+    const timestamp = now.toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+
+    // Update the card data
+    cardData[cardIndex].approval = {
+        status: 'rejected',
+        approver: 'Jensen Huang',
+        time: timestamp
+    };
+    cardData[cardIndex].activityStatus = 'postponed';
+
+    // Update filtered data to match cardData
+    filteredData = cardData.map(card => ({
+        ...card
+    }));
+
+    // Show success message
+    alert('Activity rejected successfully!');
+
+    // First update the list view data
+    renderCards();
+
     // Then show the updated detail view
     showDetailView(cardData[cardIndex]);
 }
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
+    // Set default selection
+    currentViewSelection = 'All';
+
     initializeEventListeners();
     renderCards();
 
@@ -1526,4 +1626,4 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         showNewActivityForm();
     });
-}); 
+});
